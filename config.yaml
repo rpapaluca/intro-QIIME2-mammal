@@ -2,40 +2,44 @@
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this (swc, dc, lc, or cp)? < REPLACED with UNIMELB institutes >
-# uom: University of Melbourne
-# mb: Melbourne Bioinformatics
-# mig: Melbourne Integrative Genomics
-# wehi: Walter and Eliza Hall Institute
+# Which carpentry is this (swc, dc, lc, or cp)?
+# swc: Software Carpentry
+# dc: Data Carpentry
+# lc: Library Carpentry
+# cp: Carpentries (to use for instructor training for instance)
+# incubator: The Carpentries Incubator
+# Note that you can also use a custom carpentry type. For more info,
+# see the documentation: https://carpentries.github.io/sandpaper-docs/editing.html
 carpentry: 'uom'
 
-# Alt-text description of the lesson.
-carpentry_description: 'Lesson Description'
+# Custom carpentry description
+# This will be used as the alt text for the logo
+# carpentry_description: "Custom Carpentry"
 
 # Overall title for pages.
-title: 'Intro to Metabarcoding using QIIME2 - Mammal Dataset' # FIXME
+title: 'Intro to Metabarcoding using QIIME2 - Mammal Dataset'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~ # FIXME
+created: 
 
 # Comma-separated list of keywords for the lesson
-keywords: 'metabarcoding, QIIME2, microbiome ' # FIXME
+keywords: 'metabarcoding, QIIME2, microbiome '
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha' # FIXME
+life_cycle: 'pre-alpha'
 
-# License of the lesson
+# License of the lesson materials (recommended CC-BY 4.0)
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/rpapaluca/intro-QIIME2-mammal' # FIXME
+source: 'https://github.com/rpapaluca/intro-QIIME2-mammal'
 
 # Default branch of your lesson
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'fixme@fixme.org' # FIXME
+contact: 'fixme@fixme.org'
 
 # Navigation ------------------------------------------------
 #
@@ -60,24 +64,30 @@ contact: 'fixme@fixme.org' # FIXME
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes:
+episodes: 
 - introduction.md
+- background.Rmd
+- section-1-importing-cleaning-and-quality-control-of-the-data.Rmd
+- section-2-taxonomic-analysis.Rmd
+- section-3-build-a-phylogenetic-tree.Rmd
+- section-4-basic-visualisations-and-statistics.Rmd
+- section-5-exporting-data-for-further-analysis-in-r.Rmd
 
 # Information for Learners
-learners:
+learners: 
 
 # Information for Instructors
-instructors:
+instructors: 
 
 # Learner Profiles
-profiles:
+profiles: 
 
 # Customisation ---------------------------------------------
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
 
-# This is the UoM varnish, which is a custom version of the Carpentries varnish
-varnish: 'melbournebioinformatics/uom-varnish@main'
-url: 'melbournebioinformatics.github.io/uom-varnish'
 
+carpentry_description: Lesson Description
+varnish: melbournebioinformatics/uom-varnish@main
+url: melbournebioinformatics.github.io/uom-varnish
