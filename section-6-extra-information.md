@@ -22,101 +22,47 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+:::callout
+**NOTE:** The steps below outline how to train your own classifier for analysing custom datasets. This is **not required** for this workshop, but may be useful for independent projects.
+:::
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown][pandoc] for static files (with extension `.md`) and
-[R Markdown][r-markdown] for dynamic files that can render code into output
-(with extension `.Rmd`). Please refer to the [Introduction to The Carpentries
-Workbench][carpentries-workbench] for full documentation.
+## Training a SILVA v138 Classifier for 16S/18S rRNA Gene Sequences
+The [SILVA](https://www.arb-silva.de/) database (v138) can be used to train a classifier for taxonomic assignment of 16S or 18S rRNA marker gene sequences. To do this, you will need:
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
+- Reference sequences (`silva-138-99-seqs.qza`)
+- Reference taxonomy (`silva-138-99-tax.qza`)
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+You can download these artefacts from [SILVA](https://www.arb-silva.de/download/archive/) or through our [Dropbox here](https://www.dropbox.com/s/x8ogeefjknimhkx/classifier_files.zip?dl=0). 
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
+### Step 1: Extract Reads For Your Target Region
+You must specify your forward and reverse primer sequences to extract the relevant region from the reference database:
+```bash
+qiime feature-classifier extract-reads \
+--i-sequences silva-138-99-seqs.qza \
+--p-f-primer FORWARD_PRIMER_SEQUENCE \
+--p-r-primer REVERSE_PRIMER_SEQUENCE \
+--o-reads silva_138_marker_gene.qza \
+--verbose
 ```
+See the QIIME 2 documentation for recommended primers and further information.
 
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
+### Step 2: Training the Classifier
+The classifier is then trained using a Naive Bayes algorithm using your extracted sequences and taxonomy:
+```bash
+qiime feature-classifier fit-classifier-naive-bayes \
+--i-reference-reads silva_138_marker_gene.qza \
+--i-reference-taxonomy silva-138-99-tax.qza \
+--o-classifier silva_138_marker_gene_classifier.qza \
+--verbose
 ```
+See the [QIIME 2 documentation](https://docs.qiime2.org/2023.9/plugins/available/feature-classifier/fit-classifier-naive-bayes/) for more information. 
 
-:::::::::::::::::::::::::::::::::
-
-
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can include figures generated from R Markdown:
-
-
-``` r
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-
-<div class="figure" style="text-align: center">
-<img src="fig/section-6-extra-information-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
-<p class="caption">Sun arise each and every morning</p>
-</div>
-Or you can use pandoc markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
+This custom-trained classifier can now be used for your own datasets targeting specific 16S/18S regions.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- You can train a custom classifier using SILVA reference data and your specific primer sequences to improve taxonomic accuracy for your own datasets.
+- This step is optional and not required for the workshop, but useful for custom amplicon regions or future projects.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
