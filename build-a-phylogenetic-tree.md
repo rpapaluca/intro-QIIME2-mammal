@@ -1,5 +1,5 @@
 ---
-title: 'Section 3: Build a phylogenetic tree'
+title: 'Build a phylogenetic tree'
 teaching: 10
 exercises: 2
 ---

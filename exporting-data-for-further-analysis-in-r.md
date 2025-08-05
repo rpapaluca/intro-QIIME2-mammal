@@ -1,5 +1,5 @@
 ---
-title: 'Section 5 - Exporting data for further analysis in R'
+title: 'Exporting data for further analysis in R'
 teaching: 10
 exercises: 2
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Section 4: Basic visualisations and statistics'
+title: 'Basic visualisations and statistics'
 teaching: 10
 exercises: 2
 ---

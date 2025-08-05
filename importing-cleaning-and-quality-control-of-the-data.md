@@ -1,5 +1,5 @@
 ---
-title: 'Section 1: Importing, cleaning and quality control of the data'
+title: 'Importing, cleaning and quality control of the data'
 teaching: 100
 exercises: 2
 ---

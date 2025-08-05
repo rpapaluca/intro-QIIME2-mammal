@@ -1,5 +1,5 @@
 ---
-title: 'Section 2: Taxonomic Analysis'
+title: 'Taxonomic Analysis'
 teaching: 10
 exercises: 2
 ---

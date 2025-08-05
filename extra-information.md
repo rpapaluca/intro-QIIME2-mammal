@@ -1,5 +1,5 @@
 ---
-title: 'Section 6 - Extra Information'
+title: 'Extra Information'
 teaching: 10
 exercises: 2
 ---
