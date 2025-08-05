@@ -16,101 +16,107 @@ exercises: 2
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Identify three key factors (e.g., target region, update frequency, field norms) that influence the selection of a taxonomic reference database in QIIME2
-- Execute the qiime feature-classifier classify-sklearn command with appropriate input files and parameters to assign taxonomy to representative sequences.
+- Apply the `qiime feature-classifier classify-sklearn command` with appropriate input files and parameters to assign taxonomy to representative sequences.
 - Interpret the output of a .qzv taxonomy file using QIIME2 View to evaluate the accuracy and coverage of taxonomic assignments.
-- Apply the qiime taxa filter-table command to remove mitochondrial and chloroplast reads, and assess the impact of filtering by comparing pre- and post-filtered feature tables. 
+- Apply the `qiime taxa filter-table command` to remove mitochondrial and chloroplast reads, and assess the impact of filtering by comparing pre- and post-filtered feature tables. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+Once we have high-quality representative sequences from each ASV, the next step is to **identify what organisms** those sequences belong to by comparing them to a reference database. This is known as **taxonomic classification**.
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown][pandoc] for static files (with extension `.md`) and
-[R Markdown][r-markdown] for dynamic files that can render code into output
-(with extension `.Rmd`). Please refer to the [Introduction to The Carpentries
-Workbench][carpentries-workbench] for full documentation.
+## Assign taxonomy
+Here we will classify each identical read or *Amplicon Sequence Variant (ASV)* to the highest resolution based on a database. Common databases for bacteria datasets are [Greengenes](https://greengenes.secondgenome.com/), [SILVA](https://www.arb-silva.de/), [Ribosomal Database Project](https://rdp.cme.msu.edu/), or [Genome Taxonomy Database](https://gtdb.ecogenomic.org/). 
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
+See Porter and Hajibabaei, 2020 for a review of different classifiers for metabarcoding research. 
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+The classifier chosen is dependent upon:
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+- Previously published data in a field
+- The target region of interest
+- The number of reference sequences for your organism in the database and how recently that database was updated.
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+A classifier has already been trained for you for the V4 region of the bacterial 16S rRNA gene using the SILVA database. The next step will take a while to run. *The output directory cannot previously exist*.
 
-::::::::::::::::::::::::::::::::::::: challenge 
+n_jobs = 1 This runs the script using all available cores
 
-## Challenge 1: Can you do it?
+::: callout
+## Note on Classifiers
+The [classifier used here](https://www.dropbox.com/scl/fi/s42p5fif7szzm38swcu0m/silva_138_16s_515-806_classifier.qza?rlkey=ss983qau9rwgztis2gfulhjcz&dl=0) is only appropriate for the specific 16S rRNA region that this data represents. You will need to train your own classifier for your own data. For more information about training your own classifier, see Section 6: Extra Information.
+:::
 
-What is the output of this command?
+::: callout
+## Note - Workshop Participants Only
+Due to time limitations in a workshop setting, please do NOT run the `qiime feature-classifier classify-sklearn` command below. You will need to access a pre-computed `classification.qza` file that this command generates by running the following: `cd; mkdir analysis/taxonomy; cp /mnt/shared_data/pre_computed/classification.qza analysis/taxonomy`. If you have accidentally run the command below, ctrl-c will terminate it.
+:::
 
-```r
-paste("This", "new", "lesson", "looks", "good")
+The command below uses a pre-trained SILVA classifier to assign taxonomy to each ASV. This step may take a while to run and can be memory-intensive on large datasets.
+
+``` bash
+qiime feature-classifier classify-sklearn \
+--i-classifier silva_138_16s_515-806_classifier.qza \
+--i-reads analysis/dada2out/representative_sequences.qza \
+--p-n-jobs 1 \
+--output-dir analysis/taxonomy \
+--verbose
+```
+::: callout
+This step often runs out of memory on full datasets. Some options are to change the number of cores you are using (adjust `--p-n-jobs`) or add `--p-reads-per-batch 10000` and try again. The QIIME 2 forum has many threads regarding this issue so always check there was well.
+:::
+
+## Generate a viewable summary file of the taxonomic assignments
+``` bash
+qiime metadata tabulate \
+--m-input-file analysis/taxonomy/classification.qza \
+--o-visualization analysis/visualisations/taxonomy.qzv \
+--verbose
+```
+Copy `analysis/visualisations/taxonomy.qzv` to your local computer and view in QIIME 2 View (q2view).
+
+::::::::::::::::::::::::::::::::::::::::::::: spoiler
+### Check Your Work: Taxonomy Visualisation 
+[Click to view the taxonomy.qzv file in QIIME 2 View.](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fpl5fz8bfv3iraqe7w3ryt%2Ftaxonomy.qzv%3Frlkey%3Dbnury3ua0w002sozo0eudklv7%26dl%3D1)
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Filtering
+
+After classification, it’s common to filter out sequences that aren't relevant to the microbial community of interest. In this case, we’ll remove any reads classified as mitochondria or chloroplast, as these typically represent host or plant contamination. 
+
+In this step, unassigned ASVs will be retained, as they may still represent valid but unknown microbial sequences. After filtering, we’ll generate a summary file to check how many features remain and assess the impact of the filtering step.
+
+:::callout
+**Note:** According to QIIME developer Nicholas Bokulich, low abundance filtering (i.e. removing ASVs containing very few sequences) is not necessary under the ASV model.
+:::
+
+``` bash
+qiime taxa filter-table \
+--i-table analysis/dada2out/table.qza \
+--i-taxonomy analysis/taxonomy/classification.qza  \
+--p-exclude Mitochondria,Chloroplast \
+--o-filtered-table analysis/taxonomy/16s_table_filtered.qza \
+--verbose
 ```
 
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
+``` bash
+qiime feature-table summarize \
+--i-table analysis/taxonomy/16s_table_filtered.qza \
+--m-sample-metadata-file echidna_metadata.tsv \
+--o-visualization analysis/visualisations/16s_table_filtered.qzv \
+--verbose
 ```
 
-:::::::::::::::::::::::::::::::::
+Copy `analysis/visualisations/16s_table_filtered.qzv` to your local computer and view in QIIME 2 View (q2view).
 
+::::::::::::::::::::::::::::::::::::::::::::: spoiler
+### Check Your Work: Filtered Reads Visualisation 
+[Click to view the 16s_table_filtered.qzv file in QIIME 2 View.](https://view.qiime2.org/visualization/?src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F9c1m746lxuplmwb79gldo%2F16s_table_filtered.qzv%3Frlkey%3D9iz32202xm36rfac3r7i50wtx%26dl%3D1&type=html)
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can include figures generated from R Markdown:
-
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Sun arise each and every morning"}
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-Or you can use pandoc markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
+Once your taxonomy has been assigned and filtered, you’ll be ready to explore the composition of microbial communities across your samples.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
+- Taxonomic classification requires a region-specific, pre-trained classifier based on your primers and reference database.
+- Removing mitochondrial and chloroplast sequences helps refine bacterial community composition and avoid host contamination in your analysis.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

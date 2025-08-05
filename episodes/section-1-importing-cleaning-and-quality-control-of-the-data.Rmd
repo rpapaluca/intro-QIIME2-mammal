@@ -9,27 +9,27 @@ exercises: 2
 - How do you import paired-end FASTQ files into QIIME2 using the CasavaOneEight format?
 - Why is it important to remove primers before denoising, and how is this done?
 - How can you assess sequence quality in QIIME2, and what features of the quality plots help guide truncation parameters?
-- What is the purpose of the dada2 denoise-paired command, and what are some key parameters that influence its output?
+- What is the purpose of the `dada2` denoise-paired command, and what are some key parameters that influence its output?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Import demultiplexed, paired ended sequencing data into QIIME2 using the appropriate format and command structure
-- Explain why primer removal is necessary before denoising and apply cutadapt command with appropriate primer sequences and trimming parameters
-- Generate and interpret sequence quality viusalisations from qiime demux summarise to determine suitable truncation lengths, based on quality score drop offs
-- Summarise the function of DADA2 in QIIME2 and perform denoising of paired-end sequences using the DADA2 plugin, adjusting key parameters like truncation length and pooling method based on quality data.  
+- Explain why primer removal is necessary before denoising and apply `cutadapt` command with appropriate primer sequences and trimming parameters
+- Generate and interpret sequence quality viusalisations from `qiime demux summarise` to determine suitable truncation lengths, based on quality score drop offs
+- Summarise the function of `DADA`2 in QIIME2 and perform denoising of paired-end sequences using the `DADA2` plugin, adjusting key parameters like truncation length based on quality data.  
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Import Data
 
-These [samples](https://www.melbournebioinformatics.org.au/tutorials/tutorials/qiime2_mammal/qiime2_mammal/#the-study) were sequenced on a single Illumina MiSeq run using v3 (2 × 300 bp) reagents at the Walter and Eliza Hall Institute (WEHI), Melbourne, Australia. Data from WEHI came as paired-end, demultiplexed, unzipped *.fastq files with adapters still attached. Following the [QIIME2 importing tutorial](https://docs.qiime2.org/2023.9/tutorials/importing/), this is the Casava One Eight format. The files have been renamed to satisfy the Casava format as SampleID_FWDXX-REVXX_L001_R[1 or 2]_001.fastq e.g. CTRLA_Fwd04-Rev25_L001_R1_001.fastq.gz. The files were then zipped (.gzip).
+[These samples](https://www.melbournebioinformatics.org.au/tutorials/tutorials/qiime2_mammal/qiime2_mammal/#the-study) were sequenced on a single Illumina MiSeq run using v3 (2 × 300 bp) reagents at the Walter and Eliza Hall Institute (WEHI), Melbourne, Australia. Data from WEHI came as paired-end, demultiplexed, unzipped *.fastq files with adapters still attached. Following the [QIIME2 importing tutorial](https://docs.qiime2.org/2023.9/tutorials/importing/), this is the Casava One Eight format. The files have been renamed to satisfy the Casava format as SampleID_FWDXX-REVXX_L001_R[1 or 2]_001.fastq e.g. CTRLA_Fwd04-Rev25_L001_R1_001.fastq.gz. The files were then zipped (.gzip).
 
 Here, the data files (two per sample i.e. forward and reverse reads R1 and R2 respectively) will be imported and exported as a single QIIME 2 artefact file. These samples are already demultiplexed (i.e. sequences from each sample have been written to separate files), so a metadata file is not initially required.
 
-::: Note
-To check the input syntax for any QIIME2 command, enter the command, followed by --help e.g. qiime tools import --help
+::: callout
+To check the input syntax for any QIIME2 command, enter the command, followed by `--help` e.g. `qiime tools import --help`
 :::
 
 Start by making a new directory analysis to store all the output files from this tutorial. In addition, we will create a subdirectory called seqs to store the exported sequences.
@@ -49,12 +49,12 @@ qiime tools import \
 --output-path analysis/seqs/combined.qza
 ```
 
-##Remove Primers
-These sequences still have the primers attached - they need to be removed (using cutadapt) before denoising. 
+## Remove Primers
+These sequences still have the primers attached - they need to be removed (using `cutadapt`) before denoising. 
 
-For this experiment, amplicons were amplified following the Earth Microbiome protocol with 515F (Caporaso)– 806R (Caporaso) primers targeting the v4 region of the 16S rRNA gene. The reads came back from the sequencer with primers attached, which are removed before denoising using cutadapt (v4.5 with python v3.8.15). 
+For this experiment, amplicons were amplified following the Earth Microbiome protocol with 515F (Caporaso)– 806R (Caporaso) primers targeting the v4 region of the 16S rRNA gene. The reads came back from the sequencer with primers attached, which are removed before denoising using `cutadapt` (v4.5 with python v3.8.15). 
 
-With cutadapt, the sequence specified and all bases prior are trimmed; most sequences were trimmed at ~50 base pairs (bp). An error rate of 0.15 was used to maximize the number of reads that the primers were removed from while excluding nonspecific cutting. Any untrimmed read was discarded.
+With `cutadapt`, the sequence specified and all bases prior are trimmed; most sequences were trimmed at ~50 base pairs (bp). An error rate of 0.15 was used to maximize the number of reads that the primers were removed from while excluding nonspecific cutting. Any untrimmed read was discarded.
 
 ``` bash
 qiime cutadapt trim-paired \
@@ -67,7 +67,8 @@ qiime cutadapt trim-paired \
 --verbose
 ```
 
-::: Tips for Your Own Samples and Analyses
+::: callout
+## Tips for Your Own Samples and Analyses
 - Remember to ask you sequencing facility if the raw data you get has the primers attached - they may have already been removed.
 - The primers specified (515F (Caporaso)– 806R (Caporaso) targeting the v4 region of the bacterial 16S rRNA gene) correspond to this specific experiment - they will likely not work for your own data analyses.
 - The error rate parameter, --p-error-rate, will likely need to be adjusted for your own sample data to get 100% (or close to it) of reads trimmed.
@@ -79,7 +80,7 @@ After trimming adapters and primers, it's important to check the overall quality
 
 To do this, we will generate a summary visualization of the demultiplexed and trimmed data using QIIME2.
 
-Create a subdirectory in analysis called visualisations to store all files that we will visualise in one place
+Create a subdirectory in `analysis` called `visualisations` to store all files that we will visualise in one place
 
 ``` bash
 mkdir analysis/visualisations
@@ -90,11 +91,11 @@ qiime demux summarize \
 --o-visualization analysis/visualisations/trimmed_sequences.qzv
 ```
 
-Copy the analysis/visualisations/trimmed_sequences.qzv file to your local computer and view it using [QIIME 2 View](https://view.qiime2.org/).
+Copy the analysis/visualisations/trimmed_sequences.qzv file to your local computer and [view it using QIIME 2 View](https://view.qiime2.org/).
 
 ::::::::::::::::::::::::::::::::::::::::::::: spoiler
 ### Check Your Work: Read Quality and Demux Output
-Click [here](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fm484d0ukdn9n7a2gdw7hh%2Ftrimmed_sequences.qzv%3Frlkey%3Dta8bbyyuz6ucpyn4jymx78bp2%26dl%3D1) to view the trimmed_sequence.qzv file in QIIME 2 View. 
+[Click to view the trimmed_sequence.qzv file in QIIME 2 View](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fm484d0ukdn9n7a2gdw7hh%2Ftrimmed_sequences.qzv%3Frlkey%3Dta8bbyyuz6ucpyn4jymx78bp2%26dl%3D1)
 
 - Make sure to switch between the “Overview” and “Interactive Quality Plot” tabs in the top left hand corner. 
 - Click and drag on the plot to zoom in. Double click to zoom back out to full size. 
@@ -115,9 +116,9 @@ It's normal for reverse reads (R2) to have lower quality toward the end. This ma
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Denoising the data
-Trimmed sequences are now quality assessed using the dada2 plugin within QIIME2. dada2 denoises data by modelling and correcting Illumina-sequenced amplicon errors, and infers exact amplicon sequence variants (ASVs), resolving differences of as little as 1 nucleotide. Its workflow consists of filtering, de-replication, reference‐free chimera detection, and paired‐end reads merging, resulting in a feature or ASV table.
+Trimmed sequences are now quality assessed using the `dada2` [plugin within QIIME2](https://pubmed.ncbi.nlm.nih.gov/27214047/). `dada2` denoises data by modelling and correcting Illumina-sequenced amplicon errors, and infers exact amplicon sequence variants (ASVs), resolving differences of as little as 1 nucleotide. Its workflow consists of filtering, de-replication, reference‐free chimera detection, and paired‐end reads merging, resulting in a feature or ASV table.
 
-::: Note
+::: callout
 This step may long time to run (i.e. hours), depending on files sizes and computational power.
 :::
 
@@ -146,7 +147,8 @@ Try experimenting with different truncation values and compare the DADA2 denoisi
 
 In the following command, a pooling method of ‘pseudo’ is selected. With the pseudo-pooling method, samples are denoised independently once, ASVs detected in at least 2 samples are recorded, and samples are denoised independently a second time, but this time with prior knowledge of the recorded ASVs and thus higher sensitivity to those ASVs. This is better than the default of ‘independent’ (where samples are denoised independently) when you expect samples in the run to have similar ASVs overall.
 
-::: Note - Workshop Participants Only
+::: callout
+## Note - Workshop Participants Only
 Due to computational limitations in a workshop setting, this command will be run staggered (by co-ordinating with other users on the Nectar Instance you are logged in to), with no more than two users per Instance running the command at the same time.
 :::
 
@@ -188,7 +190,7 @@ Copy analysis/visualisations/16s_denoising_stats.qzv to your local computer and 
 
 ::::::::::::::::::::::::::::::::::::::::::::: spoiler
 ### Check Your Work: Denoising Stats and Visualisation 
-Click [here](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhwpyu01wm0ubb82wbb1dt%2F16s_denoising_stats.qzv%3Frlkey%3Dkuc0zfuozlpzr0c49sxhr96m7%26dl%3D1) to view the 16s_denoising_stats.qzv file in QIIME 2 View.
+[Click to view the 16s_denoising_stats.qzv file in QIIME 2 View](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhwpyu01wm0ubb82wbb1dt%2F16s_denoising_stats.qzv%3Frlkey%3Dkuc0zfuozlpzr0c49sxhr96m7%26dl%3D1)
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ```bash
@@ -202,7 +204,7 @@ Copy analysis/visualisations/16s_table.qzv to your local computer and view in QI
 
 ::::::::::::::::::::::::::::::::::::::::::::: spoiler
 ### Check Your Work: Feature/ASV Summary and Visualisation 
-Click [here](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhkvk2yqpnm4w9oy64maf3%2F16s_table.qzv%3Frlkey%3Dtm368u59rexzgdwpm9m6l11l1%26dl%3D1) to view the 16s_table.qzv file in QIIME 2 View.
+[Click to view the 16s_table.qzv file in QIIME 2 View](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhkvk2yqpnm4w9oy64maf3%2F16s_table.qzv%3Frlkey%3Dtm368u59rexzgdwpm9m6l11l1%26dl%3D1)
 
 Make sure to switch between the “Overview” and “Feature Detail” tabs in the top left hand corner.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -217,15 +219,12 @@ Copy analysis/visualisations/16s_representative_seqs.qzv to your local computer 
 
 ::::::::::::::::::::::::::::::::::::::::::::: spoiler
 ### Check Your Work: Representative Sequences and Visualisation 
-Click [here](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F2uesky0zntkapxhlr58gu%2F16s_representative_seqs.qzv%3Frlkey%3Dakmmi05wpcwommjuytgub2grk%26dl%3D1) to view the 16s_representative_seqs.qzv file in QIIME 2 View.
+[Click here to view the 16s_representative_seqs.qzv file in QIIME 2 View](https://view.qiime2.org/visualization/?type=html&src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F2uesky0zntkapxhlr58gu%2F16s_representative_seqs.qzv%3Frlkey%3Dakmmi05wpcwommjuytgub2grk%26dl%3D1)
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
-
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
+- QIIME2 can import demultiplexed paired-end reads as a single artefact using the CasavaOneEight format.
+- Primer removal with `cutadapt` and inspection of quality plots helps determine optimal trimming parameters before denoising.
+- DADA2 denoises and merges paired reads to generate high-quality ASVs, which can be summarised and evaluated using QIIME2 visualisations.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

@@ -20,7 +20,7 @@ carpentry: 'uom'
 title: 'Intro to Metabarcoding using QIIME2 - Mammal Dataset'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 
+created: 2023-11
 
 # Comma-separated list of keywords for the lesson
 keywords: 'metabarcoding, QIIME2, microbiome '
@@ -64,7 +64,7 @@ contact: 'fixme@fixme.org'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - introduction.md
 - background.Rmd
 - section-1-importing-cleaning-and-quality-control-of-the-data.Rmd
@@ -75,13 +75,13 @@ episodes:
 - section-6-extra-information.Rmd
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #

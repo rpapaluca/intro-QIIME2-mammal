@@ -29,7 +29,7 @@ byobu-screen -S workshop
 ```
 
 #Reconnecting to a byobu-screen session
-If you get disconnected from your Nectar Instance, follow the instructions [here](https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#reconnecting-to-a-byobu-screen-session) to resume your session.
+If you get disconnected from your Nectar Instance, [follow the instructions here](https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#reconnecting-to-a-byobu-screen-session) to resume your session.
 
 ## Symbolic links to workshop data
 Data for this workshop is stored in a central location (/mnt/shared_data/) on the Nectar file system that we will be using. We will use symbolic links (ln -s) to point to it. 
