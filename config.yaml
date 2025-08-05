@@ -65,14 +65,13 @@ contact: 'fixme@fixme.org'
 
 # Order of episodes in your lesson
 episodes:
-- introduction.md
 - background.Rmd
-- section-1-importing-cleaning-and-quality-control-of-the-data.Rmd
-- section-2-taxonomic-analysis.Rmd
-- section-3-build-a-phylogenetic-tree.Rmd
-- section-4-basic-visualisations-and-statistics.Rmd
-- section-5-exporting-data-for-further-analysis-in-r.Rmd
-- section-6-extra-information.Rmd
+- importing-cleaning-and-quality-control-of-the-data.Rmd
+- taxonomic-analysis.Rmd
+- build-a-phylogenetic-tree.Rmd
+- basic-visualisations-and-statistics.Rmd
+- exporting-data-for-further-analysis-in-r.Rmd
+- extra-information.Rmd
 
 # Information for Learners
 learners:
