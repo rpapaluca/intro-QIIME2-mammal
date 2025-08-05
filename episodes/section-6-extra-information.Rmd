@@ -1,24 +1,24 @@
 ---
-title: 'Section 5 - Exporting data for further analysis in R'
+title: 'Section 6 - Extra Information'
 teaching: 10
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- What file types are required to import QIIME2 outputs into R packages like phyloseq?
-- Why do we need to remove header lines from .tsv files before importing into R?
-- How can you ensure that taxonomy and ASV tables are in compatible formats and matching order for downstream analysis?
-- What are the steps for exporting QIIME2 artefacts into plain text or .tsv formats usable in R?
+- What is the purpose of training your own classifier in QIIME2?
+- Why must primer sequences be specified when extracting reference reads for classifier training?
+- What QIIME2 commands are used to extract region-specific reads and train a custom classifier?
+- In what situations would you need to train a custom classifier instead of using a pre-trained one? 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Describe the purpose of exporting QIIME2 artefacts (ASV table, taxonomy, and tree) for use in external tools like R and phyloseq.
-- Convert QIIME2 artefacts into common formats such as .nwk, .biom, and .tsv, and prepare these files for compatibility with downstream R-based analysis.
-- Clean and modify exported .tsv files (e.g., remove headers) to ensure proper formatting for import into R packages.
-- Recognize the importance of consistent feature ordering across ASV and taxonomy files, and apply basic file-cleaning practices to avoid import errors or misaligned data in R. 
+- Explain why training a custom classifier is necessary when analyzing marker gene sequences outside of standard target regions.
+- Identify the QIIME2 commands required to extract region-specific sequences (extract-reads) and train a classifier (fit-classifier-naive-bayes).
+- Recognize the importance of using appropriate forward and reverse primers when building a classifier tailored to your sequencing protocol.
+- Describe the overall workflow for training a naive Bayes classifier using the SILVA database for 16S/18S rRNA gene analysis.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

@@ -72,6 +72,7 @@ episodes:
 - section-3-build-a-phylogenetic-tree.Rmd
 - section-4-basic-visualisations-and-statistics.Rmd
 - section-5-exporting-data-for-further-analysis-in-r.Rmd
+- section-6-extra-information.Rmd
 
 # Information for Learners
 learners: 

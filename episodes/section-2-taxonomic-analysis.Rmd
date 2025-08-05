@@ -6,14 +6,19 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- What factors influence the choice of reference database and classifier for taxonomic assignment in QIIME2?
+- Why is it important to match the classifier to the specific 16S rRNA region targeted in your data?
+- How do you assign taxonomy to ASVs using a pre-trained classifier in QIIME2?
+- What is the purpose of filtering out mitochondria and chloroplast reads, and how is this done in QIIME2?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Identify three key factors (e.g., target region, update frequency, field norms) that influence the selection of a taxonomic reference database in QIIME2
+- Execute the qiime feature-classifier classify-sklearn command with appropriate input files and parameters to assign taxonomy to representative sequences.
+- Interpret the output of a .qzv taxonomy file using QIIME2 View to evaluate the accuracy and coverage of taxonomic assignments.
+- Apply the qiime taxa filter-table command to remove mitochondrial and chloroplast reads, and assess the impact of filtering by comparing pre- and post-filtered feature tables. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

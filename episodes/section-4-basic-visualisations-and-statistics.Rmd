@@ -6,14 +6,19 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- How can you use QIIME2 to visualise the relative abundance of taxa across samples?
+- What do rarefaction curves tell you about sequencing depth and sample diversity?
+- What’s the difference between alpha and beta diversity, and how are these metrics calculated and interpreted in QIIME2?
+- How do you test for statistical differences in diversity or community composition between sample groups using QIIME2 visualisations?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Generate relative abundance bar plots using the qiime taxa barplot command and explore patterns across metadata categories by changing taxonomic levels and sorting options in QIIME 2 View.
+- Interpret alpha rarefaction curves to evaluate whether sequencing depth is sufficient to capture microbial community diversity across samples.
+- Explain the purpose of core diversity metrics (e.g., Shannon diversity, UniFrac distances), and apply the core-metrics-phylogenetic method to generate interactive visualisations for comparing diversity across samples.
+- Assess group-level differences in alpha and beta diversity using appropriate statistical tests (e.g., PERMANOVA), and interpret QIIME2 outputs to draw biological insights from metadata categories.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
