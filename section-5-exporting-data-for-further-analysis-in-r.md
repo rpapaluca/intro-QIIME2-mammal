@@ -6,14 +6,19 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- What file types are required to import QIIME2 outputs into R packages like phyloseq?
+- Why do we need to remove header lines from .tsv files before importing into R?
+- How can you ensure that taxonomy and ASV tables are in compatible formats and matching order for downstream analysis?
+- What are the steps for exporting QIIME2 artefacts into plain text or .tsv formats usable in R?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Describe the purpose of exporting QIIME2 artefacts (ASV table, taxonomy, and tree) for use in external tools like R and phyloseq.
+- Convert QIIME2 artefacts into common formats such as .nwk, .biom, and .tsv, and prepare these files for compatibility with downstream R-based analysis.
+- Clean and modify exported .tsv files (e.g., remove headers) to ensure proper formatting for import into R packages.
+- Recognize the importance of consistent feature ordering across ASV and taxonomy files, and apply basic file-cleaning practices to avoid import errors or misaligned data in R. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

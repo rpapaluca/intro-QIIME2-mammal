@@ -6,14 +6,19 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- Why is building a phylogenetic tree important for microbiome analysis?
+- What are the main steps involved in generating a phylogenetic tree using QIIME2?
+- What does the qiime phylogeny align-to-tree-mafft-fasttree command do, and what are its key outputs?
+- How can you organise and label the tree output files for easy access in downstream analyses like diversity metrics?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Explain the purpose of building a phylogenetic tree in microbiome analysis, particularly its role in downstream diversity metrics like UniFrac.
+- Describe the key steps involved in generating a phylogenetic tree in QIIME2, including sequence alignment, masking and rooting.
+- Generate a rooted phylogenetic tree from representative sequences, by running the qiime phylogeny align-to-tree-mafft-fasttree pipeline
+- Organise the output files from the phylogenetic tree-building process into a structured directory for use in later analyses. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

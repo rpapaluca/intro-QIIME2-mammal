@@ -1,12 +1,12 @@
 ---
 title: 'Background'
 teaching: 10
-exercises: 2
+exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- What is the influence of sex and individual on gut microbiota of the short-beaked echidna? oh
+- What is the influence of sex and individual on gut microbiota of the short-beaked echidna? 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -17,101 +17,36 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+## The Players
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown][pandoc] for static files (with extension `.md`) and
-[R Markdown][r-markdown] for dynamic files that can render code into output
-(with extension `.Rmd`). Please refer to the [Introduction to The Carpentries
-Workbench][carpentries-workbench] for full documentation.
+1. Short-beaked echidna [Tachyglossus aculeatus](https://en.wikipedia.org/wiki/Short-beaked_echidna) - a monotreme that has evolved to lay and incubate an egg. There are 38 samples in this dataset (This data is a subset from a larger experiment):
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
+- 5 samples from each individual (3x male and 3x female).
+- 8 control samples (DNA extraction blanks (n=5) and PCR blanks (n=3)).
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+2. The gut bacterial communities, or microbiome, of the echidna.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+## The Study
+Indigenous microbial communities (microbiota) play critical roles in host health. Monotremes, such as the short-beaked echidna, have evolved to lay and incubate an egg. Since both faeces and eggs pass through the cloaca, the faecal microbiota of female echidnas provides an opportunity for vertical transmission of microbes to their offspring as well as maintaining foetus health. Here, we characterise the gut microbiome of female and male short-beaked echidnas from six individuals living in captivity in the Currumbin Wildlife Sanctuary in Queensland. This data is a subset from a larger experiment.
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+Buthgamuwa I, Fenelon JC, Roser A, Meer H, Johnston SD, Dungan AM (2023) Unraveling the fecal microbiota stability in the short-beaked echidna (Tachyglossus aculeatus) across gestation. In review at MicrobiologyOpen. Full text on [Research Square](https://www.researchsquare.com/article/rs-3243769/v1). 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+##Intro to QIIME 2 Analysis Platform
+Quantitative Insights Into Microbial Ecology 2 [QIIME 2™](https://www.nature.com/articles/s41587-019-0209-9) is a next-generation microbiome [bioinformatics platform](https://qiime2.org/) that is extensible, free, open source, and community developed. It allows researchers to:
 
-::::::::::::::::::::::::::::::::::::: challenge 
+- Automatically track analyses with decentralised data provenance
+- Interactively explore data with beautiful visualisations
+- Easily share results without QIIME 2 installed
+- Plugin-based system — researchers can add in tools as they wish
 
-## Challenge 1: Can you do it?
+##Viewing QIIME2 Visualisations
 
-What is the output of this command?
+In order to use QIIME2 View to visualise your files, you will need to use a Google Chrome or Mozilla Firefox web browser (not in private browsing). For more information, click [here](https://view.qiime2.org/).
 
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
+As this workshop is being run on a remote Nectar Instance, you will need to [download the visual files](https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#transferring-files-between-your-computer-and-nectar-instance) (*.qzv) to your local computer and view them in [QIIME2 View](https://view.qiime2.org/).
 
-:::::::::::::::::::::::: solution 
+::: Note for Self-Installation and Independent Analysis
+Alternatively, if you have QIIME2 installed and are running it on your own computer, you can use qiime tools view to view the results from the command line (e.g. qiime tools view filename.qzv). qiime tools view opens a browser window with your visualization loaded in it. When you are done, you can close the browser window and press ctrl-c on the keyboard to terminate the command.
+:::
 
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
-
-
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can include figures generated from R Markdown:
-
-
-``` r
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-
-<div class="figure" style="text-align: center">
-<img src="fig/background-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
-<p class="caption">Sun arise each and every morning</p>
-</div>
-Or you can use pandoc markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
-
-::::::::::::::::::::::::::::::::::::: keypoints 
-
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
-::::::::::::::::::::::::::::::::::::::::::::::::
 

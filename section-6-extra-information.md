@@ -1,24 +1,24 @@
 ---
-title: 'Section 4: Basic visualisations and statistics'
+title: 'Section 6 - Extra Information'
 teaching: 10
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How can you use QIIME2 to visualise the relative abundance of taxa across samples?
-- What do rarefaction curves tell you about sequencing depth and sample diversity?
-- What’s the difference between alpha and beta diversity, and how are these metrics calculated and interpreted in QIIME2?
-- How do you test for statistical differences in diversity or community composition between sample groups using QIIME2 visualisations?
+- What is the purpose of training your own classifier in QIIME2?
+- Why must primer sequences be specified when extracting reference reads for classifier training?
+- What QIIME2 commands are used to extract region-specific reads and train a custom classifier?
+- In what situations would you need to train a custom classifier instead of using a pre-trained one? 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Generate relative abundance bar plots using the qiime taxa barplot command and explore patterns across metadata categories by changing taxonomic levels and sorting options in QIIME 2 View.
-- Interpret alpha rarefaction curves to evaluate whether sequencing depth is sufficient to capture microbial community diversity across samples.
-- Explain the purpose of core diversity metrics (e.g., Shannon diversity, UniFrac distances), and apply the core-metrics-phylogenetic method to generate interactive visualisations for comparing diversity across samples.
-- Assess group-level differences in alpha and beta diversity using appropriate statistical tests (e.g., PERMANOVA), and interpret QIIME2 outputs to draw biological insights from metadata categories.
+- Explain why training a custom classifier is necessary when analyzing marker gene sequences outside of standard target regions.
+- Identify the QIIME2 commands required to extract region-specific sequences (extract-reads) and train a classifier (fit-classifier-naive-bayes).
+- Recognize the importance of using appropriate forward and reverse primers when building a classifier tailored to your sequencing protocol.
+- Describe the overall workflow for training a naive Bayes classifier using the SILVA database for 16S/18S rRNA gene analysis.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -92,7 +92,7 @@ pie(
 ```
 
 <div class="figure" style="text-align: center">
-<img src="fig/section-4-basic-visualisations-and-statistics-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
+<img src="fig/section-6-extra-information-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
 <p class="caption">Sun arise each and every morning</p>
 </div>
 Or you can use pandoc markdown for static figures with the following syntax:
