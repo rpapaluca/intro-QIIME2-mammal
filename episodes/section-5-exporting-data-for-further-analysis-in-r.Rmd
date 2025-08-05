@@ -22,95 +22,62 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+## Exporting QIIME 2 Data for Use in R
+If you plan to conduct further statistical analyses or create custom plots in R, you'll need to export your processed QIIME 2 artefacts into standard file formats.
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown][pandoc] for static files (with extension `.md`) and
-[R Markdown][r-markdown] for dynamic files that can render code into output
-(with extension `.Rmd`). Please refer to the [Introduction to The Carpentries
-Workbench][carpentries-workbench] for full documentation.
+This section walks you through how to export the **ASV table**, **taxonomy assignments**, and **unrooted tree**, and prepare them for use in R packages such as `phyloseq`.
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
+### Exporting the Unrooted Tree
+Export the tree in Newick format (`.nwk`), which is required for downstream use in `phyloseq`
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
+```bash
+qiime tools export \
+  --input-path analysis/tree/16s_unrooted_tree.qza \
+  --output-path analysis/export
 ```
 
-:::::::::::::::::::::::: solution 
+### Exporting the Feature Table
+To begin, export your ASV abundance table (as a `.biom` file).  
 
-## Output
- 
-```output
-[1] "This new lesson looks good"
+```bash
+qiime tools export \
+  --input-path analysis/taxonomy/16s_table_filtered.qza \
+  --output-path analysis/export
 ```
 
-:::::::::::::::::::::::::::::::::
+Following this, we will then convert it to a tab-separated format (.tsv).
 
-
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can include figures generated from R Markdown:
-
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Sun arise each and every morning"}
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
+```bash
+biom convert \
+-i analysis/export/feature-table.biom \
+-o analysis/export/feature-table.tsv \
+--to-tsv
 ```
-Or you can use pandoc markdown for static figures with the following syntax:
 
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
+### Exporting the Taxonomy Table
+Now export your taxonomy classifcations as `.tsv` file.
 
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+```bash
+qiime tools export \
+--input-path analysis/taxonomy/classification.qza \
+--output-path analysis/export
+```
 
-## Math
+Some programs (like `phyloseq`) require clean .tsv files without QIIME2-specific headers. Use `sed` to remove them from the `.tsv` files you have generated:
+```bash
+sed '1d' analysis/export/taxonomy.tsv > analysis/export/taxonomy_noHeader.tsv
+sed '1d' analysis/export/feature-table.tsv > analysis/export/feature-table_noHeader.tsv
+```
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
+:::callout
+**Tip:** Many R-based pipelines expect the order of ASVs to match across tables. It’s good practice to check and clean your taxonomy and ASV tables so they align properly. That is, that the order of your ASVs in the taxonomy table rows to be the same order of ASVs in the columns of your ASV table. 
+:::
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- QIIME 2 data (ASV table, taxonomy, and tree) can be exported into standard formats for downstream analysis in R.
+- Clean and format `.tsv` and `.nwk` files to ensure compatibility with tools like phyloseq.
+- Consistent ASV ordering across files is essential for successful import and downstream analysis.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
