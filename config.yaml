@@ -20,7 +20,7 @@ carpentry: 'uom'
 title: 'Intro to Metabarcoding using QIIME2 - Mammal Dataset'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 2023-11
+created: 2023-11-01
 
 # Comma-separated list of keywords for the lesson
 keywords: 'metabarcoding, QIIME2, microbiome '
