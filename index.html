@@ -207,8 +207,8 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#data-sets">Data Sets</a></li>
-<li><a href="#software-setup">Software Setup</a></li>
+        <ul><li><a href="#software-setup">Software Setup</a></li>
+<li><a href="#required-data">Required Data</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -278,6 +278,15 @@
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="section-6-extra-information.html">8. Section 6 - Extra Information</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -337,76 +346,54 @@ any links that you are not going to use.
  -->
 
 
-      <section id="setup"><p>FIXME: Setup instructions live in this document. Please specify the
-tools and the data sets the Learner needs to have installed.</p>
-<section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
-<hr class="half-width"><!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
---><p>Download the <a href="https://example.com/FIXME" class="external-link">data zip file</a>
-and unzip it to your Desktop</p>
-</section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
-<hr class="half-width"><div id="details" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div id="details" class="callout-inner">
-<h3 class="callout-title">Details</h3>
-<div class="callout-content">
-<p>Setup for different systems can be presented in dropdown menus via a
-<code>spoiler</code> tag. They will join to this discussion block, so
-you can give a general overview of the software used in this lesson here
-and fill out the individual operating systems (and potentially add more,
-e.g. online setup) in the solutions blocks.</p>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
-  <h3 class="accordion-header" id="headingSpoiler1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  Windows
+      <section id="setup"><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
+<hr class="half-width"><p>You will need to have Google Chrome or Mozilla Firefox web browser to
+view files in QIIME2 View.</p>
+<p>All other actions will be run on a Nectar instance. Additional
+software may need to be downloaded depending on your operating
+system.</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-Mac:" name="Mac:" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Mac:" type="button" role="tab" aria-controls="nav-tabpanel-1-Mac:" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-Mac:">
+  Mac:
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
-<div class="accordion-body">
-<p>Use PuTTY</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
-  <h3 class="accordion-header" id="headingSpoiler2">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  MacOS
+<button class="nav-link" id="nav-tab-1-Windows:" name="Windows:" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Windows:" type="button" role="tab" aria-controls="nav-tabpanel-1-Windows:" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Windows:">
+  Windows:
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
-<div class="accordion-body">
-<p>Use Terminal.app</p>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-Mac:" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-Mac:">
+<p>No additional software needs to be installed for this workshop. You
+will use the Terminal app. Files can be transferred between your local
+computer and the remote Nectar Instance using scp. If you are a novice
+on the command line, software for transferring files such as <a href="https://filezilla-project.org/" class="external-link">FileZilla</a> or <a href="https://cyberduck.io/" class="external-link">Cyberduck</a> can be used.</p>
+</div>
+<div id="nav-tabpanel-1-Windows:" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Windows:">
+<ol style="list-style-type: decimal"><li>A terminal emulator such as <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" class="external-link">PuTTY</a>
+(free and open-source) will need to be downloaded.</li>
+<li>Software for file transfers between a local computer and remote
+server such as <a href="https://filezilla-project.org/" class="external-link">FileZilla</a> or
+<a href="https://winscp.net/eng/index.php" class="external-link">WinSCP</a> is required.</li>
+</ol><p>You can find further information regarding <a href="https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#required-software" class="external-link">Nectar
+Instances in Melbourne Bioinformatics Workshops here</a></p>
 </div>
 </div>
 </div>
-</div>
-<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
-  <h3 class="accordion-header" id="headingSpoiler3">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  Linux
-  </h3>
-</button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
-<div class="accordion-body">
-<p>Use Terminal</p>
-</div>
-</div>
-</div>
-</div>
+</section><section><h2 class="section-heading" id="required-data">Required Data<a class="anchor" aria-label="anchor" href="#required-data"></a></h2>
+<hr class="half-width"><p>No additional data needs to be downloaded for this workshop - it is
+all located on the Nectar Instance. FASTQs are located in the directory
+raw_data and a metadata (echidna_metadata.tsv) file has also been
+provided.</p>
+<p>If you wish to analyse the data independently at a later stage, <a href="https://zenodo.org/records/10158305" class="external-link">it can be downloaded from
+here</a>. This link contains both the FASTQs and associated metadata
+file.</p>
+<p>If you are running this tutorial independently, you can also access
+the <a href="https://www.dropbox.com/scl/fi/s42p5fif7szzm38swcu0m/silva_138_16s_515-806_classifier.qza?rlkey=ss983qau9rwgztis2gfulhjcz&amp;e=1&amp;dl=0" class="external-link">classifier
+that has been trained specifically for this data from here</a>.</p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -459,7 +446,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "melbournebioinformatics.github.io/uom-varnish/index.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/index.html",
-  "dateCreated": "2025-07-17",
+  "dateCreated": "2023-11-01",
   "dateModified": "2025-08-05",
   "datePublished": "2025-08-05"
 }

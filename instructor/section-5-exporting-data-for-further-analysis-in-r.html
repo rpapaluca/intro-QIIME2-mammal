@@ -118,11 +118,11 @@
   Intro to Metabarcoding using QIIME2 - Mammal Dataset
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 93%" class="percentage">
-    93%
+<aside class="col-md-12 lesson-progress"><div style="width: 87%" class="percentage">
+    87%
   </div>
   <div class="progress uom">
-    <div class="progress-bar uom" role="progressbar" style="width: 93%" aria-valuenow="93" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar uom" role="progressbar" style="width: 87%" aria-valuenow="87" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -279,6 +279,15 @@
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="section-6-extra-information.html">8. Section 6 - Extra Information</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -322,7 +331,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/section-4-basic-visualisations-and-statistics.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/section-6-extra-information.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -330,8 +339,8 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Section 4: Basic
         </a>
-        <a class="chapter-link float-end" href="../instructor/index.html" rel="next">
-          Home
+        <a class="chapter-link float-end" href="../instructor/section-6-extra-information.html" rel="next">
+          Next: Section 6 - Extra...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -358,8 +367,14 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<ul><li>What file types are required to import QIIME2 outputs into R
+packages like phyloseq?</li>
+<li>Why do we need to remove header lines from .tsv files before
+importing into R?</li>
+<li>How can you ensure that taxonomy and ASV tables are in compatible
+formats and matching order for downstream analysis?</li>
+<li>What are the steps for exporting QIIME2 artefacts into plain text or
+.tsv formats usable in R?</li>
 </ul></div>
 </div>
 </div>
@@ -367,9 +382,16 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<ul><li>Describe the purpose of exporting QIIME2 artefacts (ASV table,
+taxonomy, and tree) for use in external tools like R and phyloseq.</li>
+<li>Convert QIIME2 artefacts into common formats such as .nwk, .biom,
+and .tsv, and prepare these files for compatibility with downstream
+R-based analysis.</li>
+<li>Clean and modify exported .tsv files (e.g., remove headers) to
+ensure proper formatting for import into R packages.</li>
+<li>Recognize the importance of consistent feature ordering across ASV
+and taxonomy files, and apply basic file-cleaning practices to avoid
+import errors or misaligned data in R.</li>
 </ul></div>
 </div>
 </div>
@@ -514,7 +536,7 @@ any links that you are not going to use.
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/section-4-basic-visualisations-and-statistics.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/section-6-extra-information.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -522,8 +544,8 @@ any links that you are not going to use.
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Section 4: Basic
         </a>
-        <a class="chapter-link float-end" href="../instructor/index.html" rel="next">
-          Home
+        <a class="chapter-link float-end" href="../instructor/section-6-extra-information.html" rel="next">
+          Next: Section 6 - Extra...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -568,7 +590,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "melbournebioinformatics.github.io/uom-varnish/instructor/section-5-exporting-data-for-further-analysis-in-r.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/instructor/section-5-exporting-data-for-further-analysis-in-r.html",
-  "dateCreated": "2025-07-17",
+  "dateCreated": "2023-11-01",
   "dateModified": "2025-08-05",
   "datePublished": "2025-08-05"
 }

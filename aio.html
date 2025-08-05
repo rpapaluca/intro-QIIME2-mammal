@@ -324,6 +324,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="section-6-extra-information.html">8. Section 6 - Extra Information</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -458,7 +470,7 @@ reinforce the objectives.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Output </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -485,7 +497,7 @@ reinforce the objectives.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -563,8 +575,10 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What is the influence of sex and individual on gut microbiota of the
-short-beaked echidna? oh</li>
+<li>Why might the gut microbiota of male and female echidnas differ, and
+why is this biologically interesting?</li>
+<li>What are the main features and benefits of using QIIME 2 for
+microbiome analysis?</li>
 </ul>
 </div>
 </div>
@@ -574,140 +588,82 @@ short-beaked echidna? oh</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Describe the biological motivation for studying sex- and
+individual-based differences in the gut microbiota of the short-beaked
+echidna.</li>
+<li>Recognize the core capabilities of the QIIME 2 platform and explain
+how it supports microbiome research</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<section><h2 class="section-heading" id="the-players">The Players<a class="anchor" aria-label="anchor" href="#the-players"></a>
 </h2>
 <hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
-for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
-that can render code into output (with extension <code>.Rmd</code>).
-Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can include figures generated from R Markdown:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
-</div>
-<figure style="text-align: center"><img src="fig/background-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
-</h2>
-<hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
-<div class="callout-content">
+<p>Short-beaked echidna <a href="https://en.wikipedia.org/wiki/Short-beaked_echidna" class="external-link"><em>Tachyglossus
+aculeatus</em></a> - a monotreme that has evolved to lay and incubate an
+egg. We are looking at the gut bacterial communities, or microbiome, of
+the echidna. There are 38 samples in this dataset (This data is a subset
+from a larger experiment):</p>
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
-</ul>
+<li>5 samples from each individual (3x male and 3x female).</li>
+<li>8 control samples (DNA extraction blanks (n=5) and PCR blanks
+(n=3)).</li>
+</ul></section><section><h2 class="section-heading" id="the-study">The Study<a class="anchor" aria-label="anchor" href="#the-study"></a>
+</h2>
+<hr class="half-width">
+<p>Indigenous microbial communities (microbiota) play critical roles in
+host health. Monotremes, such as the short-beaked echidna, have evolved
+to lay and incubate an egg. Since both faeces and eggs pass through the
+cloaca, the faecal microbiota of female echidnas provides an opportunity
+for vertical transmission of microbes to their offspring as well as
+maintaining foetus health. Here, we characterise the gut microbiome of
+female and male short-beaked echidnas from six individuals living in
+captivity in the Currumbin Wildlife Sanctuary in Queensland. This data
+is a subset from a larger experiment.</p>
+<p>Buthgamuwa I, Fenelon JC, Roser A, Meer H, Johnston SD, Dungan AM
+(2023) Unraveling the fecal microbiota stability in the short-beaked
+echidna (<em>Tachyglossus aculeatus</em>) across gestation. In review at
+<em>MicrobiologyOpen</em>. Full text on <a href="https://www.researchsquare.com/article/rs-3243769/v1" class="external-link">Research
+Square</a>.</p>
+</section><section><h2 class="section-heading" id="intro-to-qiime-2-analysis-platform">Intro to QIIME 2 Analysis Platform<a class="anchor" aria-label="anchor" href="#intro-to-qiime-2-analysis-platform"></a>
+</h2>
+<hr class="half-width">
+<p>Quantitative Insights Into Microbial Ecology 2 <a href="https://www.nature.com/articles/s41587-019-0209-9" class="external-link">QIIME 2™</a> is
+a next-generation microbiome <a href="https://qiime2.org/" class="external-link">bioinformatics platform</a> that is
+extensible, free, open source, and community developed. It allows
+researchers to:</p>
+<ul>
+<li>Automatically track analyses with decentralised data provenance</li>
+<li>Interactively explore data with beautiful visualisations</li>
+<li>Easily share results without QIIME 2 installed</li>
+<li>Plugin-based system — researchers can add in tools as they wish</li>
+</ul></section><section><h2 class="section-heading" id="viewing-qiime2-visualisations">Viewing QIIME2 Visualisations<a class="anchor" aria-label="anchor" href="#viewing-qiime2-visualisations"></a>
+</h2>
+<hr class="half-width">
+<p>In order to use QIIME2 View to visualise your files, you will need to
+use a Google Chrome or Mozilla Firefox web browser (not in private
+browsing). More information <a href="https://view.qiime2.org/" class="external-link">can be
+found here</a>.</p>
+<p>As this workshop is being run on a remote Nectar Instance, you will
+need to <a href="https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#transferring-files-between-your-computer-and-nectar-instance" class="external-link">download
+the visual files</a> (*.qzv) to your local computer and view them in <a href="https://view.qiime2.org/" class="external-link">QIIME2 View</a>.</p>
+<div id="note-for-self-installation-and-independent-analysis" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note-for-self-installation-and-independent-analysis" class="callout-inner">
+<h3 class="callout-title">Note for Self-Installation and Independent
+Analysis</h3>
+<div class="callout-content">
+<p>Alternatively, if you have QIIME2 installed and are running it on
+your own computer, you can use qiime tools view to view the results from
+the command line (e.g. qiime tools view filename.qzv). qiime tools view
+opens a browser window with your visualization loaded in it. When you
+are done, you can close the browser window and press ctrl-c on the
+keyboard to terminate the command.</p>
 </div>
 </div>
 </div>
@@ -731,8 +687,15 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>How do you import paired-end FASTQ files into QIIME2 using the
+CasavaOneEight format?</li>
+<li>Why is it important to remove primers before denoising, and how is
+this done?</li>
+<li>How can you assess sequence quality in QIIME2, and what features of
+the quality plots help guide truncation parameters?</li>
+<li>What is the purpose of the <code>dada2</code> denoise-paired
+command, and what are some key parameters that influence its
+output?</li>
 </ul>
 </div>
 </div>
@@ -742,123 +705,396 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Import demultiplexed, paired ended sequencing data into QIIME2 using
+the appropriate format and command structure</li>
+<li>Explain why primer removal is necessary before denoising and apply
+<code>cutadapt</code> command with appropriate primer sequences and
+trimming parameters</li>
+<li>Generate and interpret sequence quality viusalisations from
+<code>qiime demux summarise</code> to determine suitable truncation
+lengths, based on quality score drop offs</li>
+<li>Summarise the function of <code>DADA</code>2 in QIIME2 and perform
+denoising of paired-end sequences using the <code>DADA2</code> plugin,
+adjusting key parameters like truncation length based on quality
+data.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<section><h2 class="section-heading" id="import-data">Import Data<a class="anchor" aria-label="anchor" href="#import-data"></a>
 </h2>
 <hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
-for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
-that can render code into output (with extension <code>.Rmd</code>).
-Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
+<p><a href="https://www.melbournebioinformatics.org.au/tutorials/tutorials/qiime2_mammal/qiime2_mammal/#the-study" class="external-link">These
+samples</a> were sequenced on a single Illumina MiSeq run using v3 (2 ×
+300 bp) reagents at the Walter and Eliza Hall Institute (WEHI),
+Melbourne, Australia. Data from WEHI came as paired-end, demultiplexed,
+unzipped *.fastq files with adapters still attached. Following the <a href="https://docs.qiime2.org/2023.9/tutorials/importing/" class="external-link">QIIME2
+importing tutorial</a>, this is the Casava One Eight format. The files
+have been renamed to satisfy the Casava format as
+SampleID_FWDXX-REVXX_L001_R[1 or 2]_001.fastq
+e.g. CTRLA_Fwd04-Rev25_L001_R1_001.fastq.gz. The files were then zipped
+(.gzip).</p>
+<p>Here, the data files (two per sample i.e. forward and reverse reads
+R1 and R2 respectively) will be imported and exported as a single QIIME
+2 artefact file. These samples are already demultiplexed (i.e. sequences
+from each sample have been written to separate files), so a metadata
+file is not initially required.</p>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>To check the input syntax for any QIIME2 command, enter the command,
+followed by <code>--help</code>
+e.g. <code>qiime tools import --help</code></p>
+</div>
+</div>
+</div>
+<p>Start by making a new directory analysis to store all the output
+files from this tutorial. In addition, we will create a subdirectory
+called seqs to store the exported sequences.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> analysis/seqs</span></code></pre>
+</div>
+<p>Run the command to import the raw data located in the directory
+raw_data and export it to a single QIIME 2 artefact file,
+combined.qza.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>--type <span class="st">'SampleData[PairedEndSequencesWithQuality]'</span> <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>--input-path raw_data <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>--input-format CasavaOneEightSingleLanePerSampleDirFmt <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>--output-path analysis/seqs/combined.qza</span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="remove-primers">Remove Primers<a class="anchor" aria-label="anchor" href="#remove-primers"></a>
+</h2>
+<hr class="half-width">
+<p>These sequences still have the primers attached - they need to be
+removed (using <code>cutadapt</code>) before denoising.</p>
+<p>For this experiment, amplicons were amplified following the Earth
+Microbiome protocol with 515F (Caporaso)– 806R (Caporaso) primers
+targeting the v4 region of the 16S rRNA gene. The reads came back from
+the sequencer with primers attached, which are removed before denoising
+using <code>cutadapt</code> (v4.5 with python v3.8.15).</p>
+<p>With <code>cutadapt</code>, the sequence specified and all bases
+prior are trimmed; most sequences were trimmed at ~50 base pairs (bp).
+An error rate of 0.15 was used to maximize the number of reads that the
+primers were removed from while excluding nonspecific cutting. Any
+untrimmed read was discarded.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">qiime</span> cutadapt trim-paired <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>--i-demultiplexed-sequences analysis/seqs/combined.qza <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>--p-front-f GTGCCAGCMGCCGCGGTAA <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>--p-front-r GGACTACHVGGGTWTCTAAT <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>--p-discard-untrimmed <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>--p-error-rate 0.15 <span class="dt">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>--output-dir analysis/seqs_trimmed <span class="dt">\</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<div id="tips-for-your-own-samples-and-analyses" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="tips-for-your-own-samples-and-analyses" class="callout-inner">
+<h3 class="callout-title">Tips for Your Own Samples and Analyses</h3>
+<div class="callout-content">
+<ul>
+<li>Remember to ask you sequencing facility if the raw data you get has
+the primers attached - they may have already been removed.</li>
+<li>The primers specified (515F (Caporaso)– 806R (Caporaso) targeting
+the v4 region of the bacterial 16S rRNA gene) correspond to this
+specific experiment - they will likely not work for your own data
+analyses.</li>
+<li>The error rate parameter, –p-error-rate, will likely need to be
+adjusted for your own sample data to get 100% (or close to it) of reads
+trimmed.</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="create-and-interpret-sequence-quality-data">Create and interpret sequence quality data<a class="anchor" aria-label="anchor" href="#create-and-interpret-sequence-quality-data"></a>
+</h2>
+<hr class="half-width">
+<p>After trimming adapters and primers, it’s important to check the
+overall quality of the sequence data before proceeding to denoising.
+This step helps you make informed choices about where to trim or
+truncate your reads and whether any samples should be excluded from
+analysis.</p>
+<p>To do this, we will generate a summary visualization of the
+demultiplexed and trimmed data using QIIME2.</p>
+<p>Create a subdirectory in <code>analysis</code> called
+<code>visualisations</code> to store all files that we will visualise in
+one place</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mkdir</span> analysis/visualisations</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">qiime</span> demux summarize <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>--i-data analysis/seqs_trimmed/trimmed_sequences.qza <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>--o-visualization analysis/visualisations/trimmed_sequences.qzv</span></code></pre>
+</div>
+<p>Copy the analysis/visualisations/trimmed_sequences.qzv file to your
+local computer and <a href="https://view.qiime2.org/" class="external-link">view it using
+QIIME 2 View</a>.</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Read Quality and Demux Output </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fm484d0ukdn9n7a2gdw7hh%2Ftrimmed_sequences.qzv%3Frlkey%3Dta8bbyyuz6ucpyn4jymx78bp2%26dl%3D1" class="external-link">Click
+to view the trimmed_sequence.qzv file in QIIME 2 View</a></p>
+<ul>
+<li>Make sure to switch between the “Overview” and “Interactive Quality
+Plot” tabs in the top left hand corner.</li>
+<li>Click and drag on the plot to zoom in. Double click to zoom back out
+to full size.</li>
+<li>Hover over a box to see the parametric seven-number summary of the
+quality scores at the corresponding position.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Things To Look Out For In Quality Data </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div class="accordion-body">
+<ul>
+<li><p>Where does the median quality drop below 35? Look at the per-base
+sequence quality plots for forward (R1) and reverse (R2) reads. Identify
+the base pair position where the median quality score begins to sharply
+decline. This informs your choices for –p-trunc-len-f and –p-trunc-len-r
+in the next step.</p></li>
+<li><p>Are there any samples with very low read counts? Under the
+Interactive Sample Detail tab, check for samples with fewer than 1000
+reads. These may not provide reliable data and might need to be excluded
+later in R or at the diversity filtering stage.</p></li>
+<li><p>Overall quality trends across reads It’s normal for reverse reads
+(R2) to have lower quality toward the end. This may influence your
+decision to truncate them earlier than forward reads.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="denoising-the-data">Denoising the data<a class="anchor" aria-label="anchor" href="#denoising-the-data"></a>
+</h2>
+<hr class="half-width">
+<p>Trimmed sequences are now quality assessed using the
+<code>dada2</code> <a href="https://pubmed.ncbi.nlm.nih.gov/27214047/" class="external-link">plugin within
+QIIME2</a>. <code>dada2</code> denoises data by modelling and correcting
+Illumina-sequenced amplicon errors, and infers exact amplicon sequence
+variants (ASVs), resolving differences of as little as 1 nucleotide. Its
+workflow consists of filtering, de-replication, reference‐free chimera
+detection, and paired‐end reads merging, resulting in a feature or ASV
+table.</p>
+<div id="callout3" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>This step may long time to run (i.e. hours), depending on files sizes
+and computational power.</p>
+</div>
+</div>
+</div>
+<div id="check-your-quality-assessment-understanding" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
+<div id="check-your-quality-assessment-understanding" class="callout-inner">
+<h3 class="callout-title">Check Your Quality Assessment Understanding</h3>
 <div class="callout-content">
-<p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
-</div>
+<p>Q: Based on your assessment of the quality plots from the
+trimmed_sequences.qzv file generated in the previous step, what values
+would you select for p-trunc-len-f and p-trunc-len-r in the command
+below? Hint: Look for the position where the median quality score drops
+below 35 for both forward and reverse reads?</p>
 </div>
 </div>
 </div>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
+<p>A: For version qiime2.2023.9 (other QIIME2 versions may slightly
+differ), open trimmed_sequences.qzv file in QIIME2 view and select the
+“Interactive Quality Plot” tab. Zoom in on the quality plots to
+determine the base pair position where the median quality drops below
+35: - Forward reads: ~253 bp - Reverse reads: ~208 bp</p>
+<p>While these are the technical thresholds, it’s often better to
+truncate more conservatively to improve quality and merging success. In
+this workshop, we use: - p-trunc-len-f 213 - p-trunc-len-r 168</p>
+<p>This trims an extra ~40 bp to ensure high-quality sequences are
+retained.</p>
+<p>Try experimenting with different truncation values and compare the
+DADA2 denoising stats to see how your choice affects read retention and
+quality.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
+<p>In the following command, a pooling method of ‘pseudo’ is selected.
+With the pseudo-pooling method, samples are denoised independently once,
+ASVs detected in at least 2 samples are recorded, and samples are
+denoised independently a second time, but this time with prior knowledge
+of the recorded ASVs and thus higher sensitivity to those ASVs. This is
+better than the default of ‘independent’ (where samples are denoised
+independently) when you expect samples in the run to have similar ASVs
+overall.</p>
+<div id="note---workshop-participants-only" class="callout">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<div id="note---workshop-participants-only" class="callout-inner">
+<h3 class="callout-title">Note - Workshop Participants Only</h3>
 <div class="callout-content">
-
+<p>Due to computational limitations in a workshop setting, this command
+will be run staggered (by co-ordinating with other users on the Nectar
+Instance you are logged in to), with no more than two users per Instance
+running the command at the same time.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can include figures generated from R Markdown:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<p>The specified output directory must not pre-exist.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">qiime</span> dada2 denoise-paired <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>--i-demultiplexed-seqs analysis/seqs_trimmed/trimmed_sequences.qza <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>--p-trunc-len-f xx <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>--p-trunc-len-r xx <span class="dt">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>--p-n-threads 0 <span class="dt">\</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>--p-pooling-method <span class="st">'pseudo'</span> <span class="dt">\</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>--output-dir analysis/dada2out <span class="dt">\</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/section-1-importing-cleaning-and-quality-control-of-the-data-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
+</section><section><h2 class="section-heading" id="generate-summary-files">Generate Summary Files<a class="anchor" aria-label="anchor" href="#generate-summary-files"></a>
 </h2>
 <hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
+<p>A <a href="https://docs.qiime2.org/2023.9/tutorials/metadata/" class="external-link">metadata
+file</a> is required which provides the key to gaining biological
+insight from your data. The file echidna_metadata.tsv is provided in the
+home directory of your Nectar instance. This spreadsheet has already
+been verified using the plugin for Google Sheets, <a href="https://keemei.qiime2.org/" class="external-link">keemei</a>.</p>
+<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
+  <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Things To Look Out For In Summary Data </h3>
+</button>
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div class="accordion-body">
+<ul>
+<li><p>How many features (ASVs) were generated? Are the communities high
+or low diversity?</p></li>
+<li><p>Do BLAST searches of the representative sequences make sense? Are
+the features what you would expect e.g. marine or terrestrial?</p></li>
+<li><p>Have a large number (e.g. &gt;50%) of sequences been lost during
+denoising/filtering? If so, the settings might be too
+stringent.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">qiime</span> metadata tabulate <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>--m-input-file analysis/dada2out/denoising_stats.qza <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_denoising_stats.qzv <span class="dt">\</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy analysis/visualisations/16s_denoising_stats.qzv to your local
+computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
+  <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Denoising Stats and Visualisation </h3>
+</button>
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhwpyu01wm0ubb82wbb1dt%2F16s_denoising_stats.qzv%3Frlkey%3Dkuc0zfuozlpzr0c49sxhr96m7%26dl%3D1" class="external-link">Click
+to view the 16s_denoising_stats.qzv file in QIIME 2 View</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>--i-table analysis/dada2out/table.qza <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>--m-sample-metadata-file echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_table.qzv <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy analysis/visualisations/16s_table.qzv to your local computer and
+view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler5" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler5" aria-expanded="false" aria-controls="collapseSpoiler5">
+  <h3 class="accordion-header" id="headingSpoiler5">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Feature/ASV Summary and Visualisation </h3>
+</button>
+<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhkvk2yqpnm4w9oy64maf3%2F16s_table.qzv%3Frlkey%3Dtm368u59rexzgdwpm9m6l11l1%26dl%3D1" class="external-link">Click
+to view the 16s_table.qzv file in QIIME 2 View</a></p>
+<p>Make sure to switch between the “Overview” and “Feature Detail” tabs
+in the top left hand corner.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">qiime</span> feature-table tabulate-seqs <span class="dt">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>--i-data analysis/dada2out/representative_sequences.qza <span class="dt">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_representative_seqs.qzv <span class="dt">\</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy analysis/visualisations/16s_representative_seqs.qzv to your
+local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler6" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler6" aria-expanded="false" aria-controls="collapseSpoiler6">
+  <h3 class="accordion-header" id="headingSpoiler6">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Representative Sequences and Visualisation </h3>
+</button>
+<div id="collapseSpoiler6" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler6" aria-labelledby="headingSpoiler6">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F2uesky0zntkapxhlr58gu%2F16s_representative_seqs.qzv%3Frlkey%3Dakmmi05wpcwommjuytgub2grk%26dl%3D1" class="external-link">Click
+here to view the 16s_representative_seqs.qzv file in QIIME 2
+View</a></p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -867,14 +1103,13 @@ this:</p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>QIIME2 can import demultiplexed paired-end reads as a single
+artefact using the CasavaOneEight format.</li>
+<li>Primer removal with <code>cutadapt</code> and inspection of quality
+plots helps determine optimal trimming parameters before denoising.</li>
+<li>DADA2 denoises and merges paired reads to generate high-quality
+ASVs, which can be summarised and evaluated using QIIME2
+visualisations.</li>
 </ul>
 </div>
 </div>
@@ -899,8 +1134,14 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>What factors influence the choice of reference database and
+classifier for taxonomic assignment in QIIME2?</li>
+<li>Why is it important to match the classifier to the specific 16S rRNA
+region targeted in your data?</li>
+<li>How do you assign taxonomy to ASVs using a pre-trained classifier in
+QIIME2?</li>
+<li>What is the purpose of filtering out mitochondria and chloroplast
+reads, and how is this done in QIIME2?</li>
 </ul>
 </div>
 </div>
@@ -910,123 +1151,201 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Identify three key factors (e.g., target region, update frequency,
+field norms) that influence the selection of a taxonomic reference
+database in QIIME2</li>
+<li>Apply the
+<code>qiime feature-classifier classify-sklearn command</code> with
+appropriate input files and parameters to assign taxonomy to
+representative sequences.</li>
+<li>Interpret the output of a .qzv taxonomy file using QIIME2 View to
+evaluate the accuracy and coverage of taxonomic assignments.</li>
+<li>Apply the <code>qiime taxa filter-table command</code> to remove
+mitochondrial and chloroplast reads, and assess the impact of filtering
+by comparing pre- and post-filtered feature tables.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<p>Once we have high-quality representative sequences from each ASV, the
+next step is to <strong>identify what organisms</strong> those sequences
+belong to by comparing them to a reference database. This is known as
+<strong>taxonomic classification</strong>.</p>
+<section><h2 class="section-heading" id="assign-taxonomy">Assign taxonomy<a class="anchor" aria-label="anchor" href="#assign-taxonomy"></a>
 </h2>
 <hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
-for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
-that can render code into output (with extension <code>.Rmd</code>).
-Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
+<p>Here we will classify each identical read or <em>Amplicon Sequence
+Variant (ASV)</em> to the highest resolution based on a database. Common
+databases for bacteria datasets are <a href="https://greengenes.secondgenome.com/" class="external-link">Greengenes</a>, <a href="https://www.arb-silva.de/" class="external-link">SILVA</a>, <a href="https://rdp.cme.msu.edu/" class="external-link">Ribosomal Database Project</a>, or <a href="https://gtdb.ecogenomic.org/" class="external-link">Genome Taxonomy Database</a>.</p>
+<p>See Porter and Hajibabaei, 2020 for a review of different classifiers
+for metabarcoding research.</p>
+<p>The classifier chosen is dependent upon:</p>
+<ul>
+<li>Previously published data in a field</li>
+<li>The target region of interest</li>
+<li>The number of reference sequences for your organism in the database
+and how recently that database was updated.</li>
+</ul>
+<p>A classifier has already been trained for you for the V4 region of
+the bacterial 16S rRNA gene using the SILVA database. The next step will
+take a while to run. <em>The output directory cannot previously
+exist</em>.</p>
+<p>n_jobs = 1 This runs the script using all available cores</p>
+<div id="note-on-classifiers" class="callout">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
+<div id="note-on-classifiers" class="callout-inner">
+<h3 class="callout-title">Note on Classifiers</h3>
 <div class="callout-content">
-<p>What is the output of this command?</p>
+<p>The <a href="https://www.dropbox.com/scl/fi/s42p5fif7szzm38swcu0m/silva_138_16s_515-806_classifier.qza?rlkey=ss983qau9rwgztis2gfulhjcz&amp;dl=0" class="external-link">classifier
+used here</a> is only appropriate for the specific 16S rRNA region that
+this data represents. You will need to train your own classifier for
+your own data. For more information about training your own classifier,
+see Section 6: Extra Information.</p>
+</div>
+</div>
+</div>
+<div id="note---workshop-participants-only" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note---workshop-participants-only" class="callout-inner">
+<h3 class="callout-title">Note - Workshop Participants Only</h3>
+<div class="callout-content">
+<p>Due to time limitations in a workshop setting, please do NOT run the
+<code>qiime feature-classifier classify-sklearn</code> command below.
+You will need to access a pre-computed <code>classification.qza</code>
+file that this command generates by running the following:
+<code>cd; mkdir analysis/taxonomy; cp /mnt/shared_data/pre_computed/classification.qza analysis/taxonomy</code>.
+If you have accidentally run the command below, ctrl-c will terminate
+it.</p>
+</div>
+</div>
+</div>
+<p>The command below uses a pre-trained SILVA classifier to assign
+taxonomy to each ASV. This step may take a while to run and can be
+memory-intensive on large datasets.</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">qiime</span> feature-classifier classify-sklearn <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>--i-classifier silva_138_16s_515-806_classifier.qza <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>--i-reads analysis/dada2out/representative_sequences.qza <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>--p-n-jobs 1 <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>--output-dir analysis/taxonomy <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
+<div id="callout3" class="callout">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
-
+<p>This step often runs out of memory on full datasets. Some options are
+to change the number of cores you are using (adjust
+<code>--p-n-jobs</code>) or add <code>--p-reads-per-batch 10000</code>
+and try again. The QIIME 2 forum has many threads regarding this issue
+so always check there was well.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
+</section><section><h2 class="section-heading" id="generate-a-viewable-summary-file-of-the-taxonomic-assignments">Generate a viewable summary file of the taxonomic assignments<a class="anchor" aria-label="anchor" href="#generate-a-viewable-summary-file-of-the-taxonomic-assignments"></a>
 </h2>
 <hr class="half-width">
-<p>You can include figures generated from R Markdown:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">qiime</span> metadata tabulate <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>--m-input-file analysis/taxonomy/classification.qza <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>--o-visualization analysis/visualisations/taxonomy.qzv <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/section-2-taxonomic-analysis-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
+<p>Copy <code>analysis/visualisations/taxonomy.qzv</code> to your local
+computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Taxonomy Visualisation
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fpl5fz8bfv3iraqe7w3ryt%2Ftaxonomy.qzv%3Frlkey%3Dbnury3ua0w002sozo0eudklv7%26dl%3D1" class="external-link">Click
+to view the taxonomy.qzv file in QIIME 2 View.</a></p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="filtering">Filtering<a class="anchor" aria-label="anchor" href="#filtering"></a>
 </h2>
 <hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
+<p>After classification, it’s common to filter out sequences that aren’t
+relevant to the microbial community of interest. In this case, we’ll
+remove any reads classified as mitochondria or chloroplast, as these
+typically represent host or plant contamination.</p>
+<p>In this step, unassigned ASVs will be retained, as they may still
+represent valid but unknown microbial sequences. After filtering, we’ll
+generate a summary file to check how many features remain and assess the
+impact of the filtering step.</p>
+<div id="callout4" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p><strong>Note:</strong> According to QIIME developer Nicholas
+Bokulich, low abundance filtering (i.e. removing ASVs containing very
+few sequences) is not necessary under the ASV model.</p>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">qiime</span> taxa filter-table <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>--i-table analysis/dada2out/table.qza <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>--i-taxonomy analysis/taxonomy/classification.qza  <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>--p-exclude Mitochondria,Chloroplast <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>--o-filtered-table analysis/taxonomy/16s_table_filtered.qza <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>--i-table analysis/taxonomy/16s_table_filtered.qza <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>--m-sample-metadata-file echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_table_filtered.qzv <span class="dt">\</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy <code>analysis/visualisations/16s_table_filtered.qzv</code> to
+your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Filtered Reads Visualisation
+  </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F9c1m746lxuplmwb79gldo%2F16s_table_filtered.qzv%3Frlkey%3D9iz32202xm36rfac3r7i50wtx%26dl%3D1&amp;type=html" class="external-link">Click
+to view the 16s_table_filtered.qzv file in QIIME 2 View.</a></p>
+</div>
+</div>
+</div>
+</div>
+<p>Once your taxonomy has been assigned and filtered, you’ll be ready to
+explore the composition of microbial communities across your
+samples.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1035,14 +1354,11 @@ this:</p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>Taxonomic classification requires a region-specific, pre-trained
+classifier based on your primers and reference database.</li>
+<li>Removing mitochondrial and chloroplast sequences helps refine
+bacterial community composition and avoid host contamination in your
+analysis.</li>
 </ul>
 </div>
 </div>
@@ -1067,8 +1383,15 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>Why is building a phylogenetic tree important for microbiome
+analysis?</li>
+<li>What are the main steps involved in generating a phylogenetic tree
+using QIIME2?</li>
+<li>What does the
+<code>qiime phylogeny align-to-tree-mafft-fasttree</code> command do,
+and what are its key outputs?</li>
+<li>How can you organise and label the tree output files for easy access
+in downstream analyses like diversity metrics?</li>
 </ul>
 </div>
 </div>
@@ -1078,123 +1401,92 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Explain the purpose of building a phylogenetic tree in microbiome
+analysis, particularly its role in downstream diversity metrics like
+UniFrac.</li>
+<li>Describe the key steps involved in generating a phylogenetic tree in
+QIIME2, including sequence alignment, masking and rooting.</li>
+<li>Construct a rooted phylogenetic tree from representative sequences,
+by running the <code>qiime phylogeny align-to-tree-mafft-fasttree</code>
+pipeline</li>
+<li>Organise the output files from the phylogenetic tree-building
+process into a structured directory for use in later analyses.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<section><h2 class="section-heading" id="why-build-a-phylogenetic-tree">Why build a phylogenetic tree?<a class="anchor" aria-label="anchor" href="#why-build-a-phylogenetic-tree"></a>
 </h2>
 <hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
-for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
-that can render code into output (with extension <code>.Rmd</code>).
-Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
+<p>The next step is to construct a phylogenetic tree from the
+representative ASV sequences. This process involves:</p>
 <ol style="list-style-type: decimal">
 <li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
+<strong>Aligning the representative sequences</strong> using a
+multiple sequence alignment method.<br>
+</li>
 <li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
+<strong>Masking uninformative sites</strong> in the alignment (e.g.,
+positions that are too variable or gapped to be meaningful for
+phylogenetic inference).<br>
+</li>
 <li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
+<strong>Generating a phylogenetic tree</strong> based on the aligned
+sequences.<br>
+</li>
+<li>
+<strong>Applying mid-point rooting</strong> to ensure the tree is
+properly rooted for downstream analyses.</li>
 </ol>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
+<p>A phylogenetic tree is essential for analyses that rely on the
+<strong>evolutionary relationships between community members</strong>,
+such as <strong>beta-diversity metrics</strong> like <strong>weighted or
+unweighted UniFrac</strong>, and for visualisations that incorporate
+these distance measures.</p>
+</section><section><h2 class="section-heading" id="create-the-tree-directory">Create the Tree Directory<a class="anchor" aria-label="anchor" href="#create-the-tree-directory"></a>
+</h2>
+<hr class="half-width">
+<p>Before running the command, create a new directory to store the
+phylogenetic tree outputs:</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mkdir</span> analysis/tree</span></code></pre>
 </div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
+</section><section><h2 class="section-heading" id="build-the-phylogenetic-tree">Build the Phylogenetic Tree<a class="anchor" aria-label="anchor" href="#build-the-phylogenetic-tree"></a>
+</h2>
+<hr class="half-width">
+<p>We will use the
+<code>qiime phylogeny align-to-tree-mafft-fasttree</code> pipeline,
+which performs all of the steps above (alignment, masking, tree
+building, and rooting) in a single command.</p>
+<div id="callout1" class="callout">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
-
+<p><strong>Note:</strong> We will use a single thread
+<code>(--p-n-threads 1)</code>, which is the default. This helps ensure
+that results are reproducible if the command is rerun.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can include figures generated from R Markdown:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">qiime</span> phylogeny align-to-tree-mafft-fasttree <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>--i-sequences analysis/dada2out/representative_sequences.qza <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>--o-alignment analysis/tree/aligned_16s_representative_seqs.qza <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>--o-masked-alignment analysis/tree/masked_aligned_16s_representative_seqs.qza <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>--o-tree analysis/tree/16s_unrooted_tree.qza <span class="dt">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>--o-rooted-tree analysis/tree/16s_rooted_tree.qza <span class="dt">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>--p-n-threads 1 <span class="dt">\</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/section-3-build-a-phylogenetic-tree-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
-</h2>
-<hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1203,14 +1495,12 @@ this:</p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>Phylogenetic trees allow downstream analyses to incorporate
+evolutionary relationships between organisms in downstream
+analysis.</li>
+<li>QIIME2’s <code>align-to-tree-mafft-fasttree</code> pipeline builds a
+rooted phylogenetic tree in a single step from representative
+sequences.</li>
 </ul>
 </div>
 </div>
@@ -1235,8 +1525,15 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>How can you use QIIME2 to visualise the relative abundance of taxa
+across samples?</li>
+<li>What do rarefaction curves tell you about sequencing depth and
+sample diversity?</li>
+<li>What’s the difference between alpha and beta diversity, and how are
+these metrics calculated and interpreted in QIIME2?</li>
+<li>How do you test for statistical differences in diversity or
+community composition between sample groups using QIIME2
+visualisations?</li>
 </ul>
 </div>
 </div>
@@ -1246,123 +1543,445 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Generate relative abundance bar plots using the qiime taxa barplot
+command and explore patterns across metadata categories by changing
+taxonomic levels and sorting options in QIIME 2 View.</li>
+<li>Interpret alpha rarefaction curves to evaluate whether sequencing
+depth is sufficient to capture microbial community diversity across
+samples.</li>
+<li>Explain the purpose of core diversity metrics (e.g., Shannon
+diversity, UniFrac distances), and apply the core-metrics-phylogenetic
+method to generate interactive visualisations for comparing diversity
+across samples.</li>
+<li>Assess group-level differences in alpha and beta diversity using
+appropriate statistical tests (e.g., PERMANOVA), and interpret QIIME2
+outputs to draw biological insights from metadata categories.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<section><h2 class="section-heading" id="visualising-asv-relative-abundance">Visualising ASV Relative Abundance<a class="anchor" aria-label="anchor" href="#visualising-asv-relative-abundance"></a>
 </h2>
 <hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
-for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
-that can render code into output (with extension <code>.Rmd</code>).
-Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
+<p>We can create bar charts to compare the relative abundance of ASVs
+across samples.</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">qiime</span> taxa barplot <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>--i-table analysis/taxonomy/16s_table_filtered.qza <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>--i-taxonomy analysis/taxonomy/classification.qza <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>--m-metadata-file echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>--o-visualization analysis/visualisations/barchart.qzv <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<p>Copy <code>analysis/visualisations/barchart.qzv</code> to your local
+computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Taxonomy Barplots
+  </h3>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F0r73637tkg60wjbf5s07a%2Fbarchart.qzv%3Frlkey%3Djlx2ctcs9n5rszkun7bgaint1%26dl%3D1" class="external-link">Click
+to view the barchart.qzv file in QIIME 2 View</a></p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
+<div id="how-to-explore-barplots-in-qiime-2-view" class="callout">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<div id="how-to-explore-barplots-in-qiime-2-view" class="callout-inner">
+<h3 class="callout-title">How to Explore Barplots in QIIME 2 View</h3>
 <div class="callout-content">
-
+<p>Once you’ve opened barchart.qzv in QIIME 2 View, try the
+following:</p>
+<ul>
+<li>
+<em>Change Taxonomic Levels</em>: Use the “Change Taxonomic Level”
+dropdown to explore patterns at Level 1 (Phylum), Level 3 (Class), and
+Level 5 (Family).</li>
+<li>
+<em>Sort Samples</em>: Use the “Sort Samples By” option to group by
+metadata fields like Sex or Animal.</li>
+<li>
+<em>Adjust Visuals</em>: Increase the “Bar Width” to make
+differences easier to see across samples.</li>
+</ul>
+<p>These visualisations can help you spot differences in microbiome
+composition across individuals or groups.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+</section><section><h2 class="section-heading" id="exploring-sequencing-depth-rarefaction-curves">Exploring Sequencing Depth (Rarefaction Curves)<a class="anchor" aria-label="anchor" href="#exploring-sequencing-depth-rarefaction-curves"></a>
+</h2>
+<hr class="half-width">
+<p>Rarefaction curves help determine whether the samples have been
+sequenced deeply enough to capture all the community members.</p>
+<div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p><strong>How to Explore Rarefaction Curves in QIIME2 View</strong>: -
+Do the curves plateau? If not, you may not have sequenced deeply enough.
+- What sequencing depth corresponds to most curves levelling off? -
+Choose a <code>--p-max-depth value</code> based on
+<code>16s_table_filtered.qzv</code>. A value near the median frequency
+works well.</p>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Further Detail on -p-max-depth
+  </h3>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
+<p>The value that you provide for –p-max-depth should be determined by
+reviewing the “Frequency per sample” information presented in the
+<code>16s_table_filtered.qzv</code> file that was created above. In
+general, choosing a value that is somewhere around the median frequency
+seems to work well, but you may want to increase that value if the lines
+in the resulting rarefaction plot don’t appear to be levelling out, or
+decrease that value if you seem to be losing many of your samples due to
+low total frequencies closer to the minimum sampling depth than the
+maximum sampling depth.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can include figures generated from R Markdown:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">qiime</span> diversity alpha-rarefaction <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>--i-table analysis/taxonomy/16s_table_filtered.qza <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>--i-phylogeny analysis/tree/16s_rooted_tree.qza <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>--p-max-depth 20000 <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>--p-min-depth 500 <span class="dt">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>--p-steps 40 <span class="dt">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>--m-metadata-file echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_alpha_rarefaction.qzv <span class="dt">\</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/section-4-basic-visualisations-and-statistics-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
+<p>Copy <code>analysis/visualisations/16s_alpha_rarefaction.qzv</code>
+to your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
+  <h3 class="accordion-header" id="headingSpoiler3">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Rarefaction Visualisation
+  </h3>
+</button>
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fa9tqrizdol82j4f2em7ll%2F16s_alpha_rarefaction.qzv%3Frlkey%3Dilcp14psote78zp7rbjrdlz26%26dl%3D1" class="external-link">Click
+to view the 16s_alpha_rarefaction.qzv file in QIIME 2 View</a></p>
+<p>Select “Animal” in the “Sample Metadata Column” and
+“observed_features” under “Metric”</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="core-diversity-metrics-alpha-and-beta-diversity">Core Diversity Metrics (Alpha and Beta Diversity)<a class="anchor" aria-label="anchor" href="#core-diversity-metrics-alpha-and-beta-diversity"></a>
 </h2>
 <hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
+<div class="section level3">
+<h3 id="what-is-core-diversity-analysis">What is Core Diversity Analysis?<a class="anchor" aria-label="anchor" href="#what-is-core-diversity-analysis"></a>
+</h3>
+<p>QIIME 2’s <code>q2-diversity</code> plugin allows us to explore alpha
+(within-sample) and beta (between-sample) diversity using a range of
+metrics and visualisation tools. The following is adapted from the
+Moving Pictures Tutorial.</p>
+<p>The <code>core-metrics-phylogenetic</code> pipeline simplifies this
+by:</p>
+<ul>
+<li>Rarefying the feature table to a fixed sampling depth.</li>
+<li>Calculating several diversity metrics.</li>
+<li>Generating PCoA plots for beta diversity using Emperor.</li>
+</ul>
+<p><strong>Alpha diversity metrics (within samples):</strong></p>
+<ul>
+<li>
+<em>Observed OTUs</em>: a qualitative measure of community
+richness</li>
+<li>
+<em>Shannon’s index</em>: a quantitative measure of community
+richness</li>
+<li>
+<em>Faith’s Phylogenetic Diversity</em>: a qualitative measure of
+community richness that considers phylogenetic relatedness</li>
+<li>
+<em>Evenness (Pielou’s)</em>: measure of community evenness</li>
+</ul>
+<p><strong>Beta diversity metrics (between samples):</strong></p>
+<ul>
+<li>
+<em>Jaccard distance</em>: Qualitative measure of community
+dissimilarity, based on absence/presence</li>
+<li>
+<em>Bray–Curtis distance</em>: Quantitative measure of community
+dissimilarity, based on abundance</li>
+<li>
+<em>Unweighted UniFrac</em>: Qualitative measure of community
+dissimilarity, includes phylogenetic relationships between features</li>
+<li>
+<em>Weighted UniFrac</em>: Quantitative measure of community
+dissimilarity, includes phylogenetic relationships between features</li>
+</ul>
+<p><strong>Choosing your sampling depth</strong></p>
+<p>Most diversity metrics are sensitive to sampling depth, so QIIME 2
+standardizes counts by randomly subsampling the counts from each sample
+to the value provided for this parameter. This is passed using
+<code>--p-sampling-depth</code>.</p>
+<p>For example, if <code>--p-sampling-depth 500</code> is provided, this
+step will subsample the counts in each sample without replacement, so
+that each sample in the resulting table has a total count of 500. If the
+total count for any sample(s) are smaller than this value, those samples
+will be excluded from the diversity analysis.</p>
+<p>Choosing this value is tricky. To do so, keep in mind the
+following:</p>
+<ul>
+<li>Review the “Frequency per sample” in
+<code>16s_table_filtered.qzv</code> created previously</li>
+<li>Pick a depth that retains most samples while still being high enough
+to capture diversity.</li>
+<li>It’s okay to omit extraction blanks or PCR negatives.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="calculating-core-diversity-metrics">Calculating Core Diversity Metrics<a class="anchor" aria-label="anchor" href="#calculating-core-diversity-metrics"></a>
+</h3>
+<p>Once you’ve determined an appropriate depth, you can run the
+following command to generate a full suite of diversity metrics:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">qiime</span> diversity core-metrics-phylogenetic <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">--i-phylogeny</span> analysis/tree/16s_rooted_tree.qza <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">--i-table</span> analysis/taxonomy/16s_table_filtered.qza <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">--p-sampling-depth</span> 7316 <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="at">--output-dir</span> analysis/diversity_metrics</span></code></pre>
+</div>
+<p>Copy the <code>.qzv</code> files created from the above command into
+the <code>visualisations</code> subdirectory.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">cp</span> analysis/diversity_metrics/<span class="pp">*</span>.qzv analysis/visualisations</span></code></pre>
+</div>
+<p>To view the differences between sample composition using unweighted
+UniFrac in ordination space, copy
+<code>analysis/visualisations/unweighted_unifrac_emperor.qzv</code> to
+your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
+  <h3 class="accordion-header" id="headingSpoiler4">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Unweighted UniFrac Emperor Ordination
+  </h3>
+</button>
+<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fpsqxp4hfgvrzpeta687lk%2Funweighted_unifrac_emperor.qzv%3Frlkey%3Dujflsjcjx5qjl2z9vc61072pi%26dl%3D1" class="external-link">Click
+to view the unweighted_unifrac_emperor.qzv file in QIIME 2 View</a></p>
+<p>On q2view, select the “Color” tab, choose “Animal” under the “Select
+a Color Category” dropdown menu, then select the “Shape” tab and choose
+“Sex” under the “Select a Shape Category” dropdown menu.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="testing-for-group-differences">Testing for Group Differences<a class="anchor" aria-label="anchor" href="#testing-for-group-differences"></a>
+</h2>
+<hr class="half-width">
+<p>Next, we’ll test for association between categorical metadata columns
+and alpha diversity data. We’ll do that here for observed ASVs and
+evenness metrics.</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">qiime</span> diversity alpha-group-significance <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="at">--i-alpha-diversity</span> analysis/diversity_metrics/observed_features_vector.qza <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="at">--o-visualization</span> analysis/visualisations/observed_features-significance.qzv</span></code></pre>
+</div>
+<p>Copy
+<code>analysis/visualisations/observed_features-significance.qzv</code>
+to your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler5" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler5" aria-expanded="false" aria-controls="collapseSpoiler5">
+  <h3 class="accordion-header" id="headingSpoiler5">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Observed Diversity Output
+  </h3>
+</button>
+<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Ftn3r31tk3s04pv19cb0ig%2Fobserved_features-significance.qzv%3Frlkey%3D0qmb7fezh6am8drib39qn629h%26dl%3D1" class="external-link">Click
+to view the observed_features-significance.qzv file in QIIME 2
+View.</a></p>
+<p>Select “Animal” under the “Column” dropdown menu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">qiime</span> diversity alpha-group-significance <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="at">--i-alpha-diversity</span> analysis/diversity_metrics/evenness_vector.qza <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">--o-visualization</span> analysis/visualisations/evenness-group-significance.qzv</span></code></pre>
+</div>
+<p>Copy
+<code>analysis/visualisations/evenness-group-significance.qzv</code> to
+your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler6" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler6" aria-expanded="false" aria-controls="collapseSpoiler6">
+  <h3 class="accordion-header" id="headingSpoiler6">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Evenness Output
+  </h3>
+</button>
+<div id="collapseSpoiler6" class="accordion-collapse collapse" aria-labelledby="headingSpoiler6" data-bs-parent="#accordionSpoiler6">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Foi8wbq9x4uztgkjv422gd%2Fevenness-group-significance.qzv%3Frlkey%3Dlvmydv7kkuotbtz2cilztyss7%26dl%3D1" class="external-link">Click
+to view the evenness-group-significance.qzv file in QIIME 2
+View.</a></p>
+<p>Select “Animal” under the “Column” dropdown menu.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Finally, we’ll analyse sample composition in the context of
+categorical metadata using a permutational multivariate analysis of
+variance (PERMANOVA, first described in Anderson (2001)) test using the
+<code>beta-group-significance</code> command.</p>
+<p>The following commands will test whether distances between samples
+within a group are more similar to each other then they are to samples
+from the other groups. If you call this command with the
+<code>--p-pairwise parameter</code>, as we’ll do here, it will also
+perform pairwise tests that will allow you to determine which specific
+pairs of groups differ from one another, if any.</p>
+<p>This command can be slow to run, especially when passing
+<code>--p-pairwise</code>, since it is based on permutation tests. So,
+unlike the previous commands, we’ll run beta-group-significance on
+specific columns of metadata that we’re interested in exploring, rather
+than all metadata columns to which it is applicable.</p>
+<p>Here we’ll apply this to our unweighted UniFrac distances, using two
+sample metadata columns (Gender and Animal), as follows.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">qiime</span> diversity beta-group-significance <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="at">--i-distance-matrix</span> analysis/diversity_metrics/unweighted_unifrac_distance_matrix.qza <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">--m-metadata-column</span> Sex <span class="dt">\</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">--o-visualization</span> analysis/visualisations/unweighted-unifrac-gender-significance.qzv <span class="dt">\</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="at">--p-pairwise</span></span></code></pre>
+</div>
+<p>Copy
+<code>analysis/visualisations/unweighted-unifrac-gender-significance.qzv</code>
+to your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler7" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler7" aria-expanded="false" aria-controls="collapseSpoiler7">
+  <h3 class="accordion-header" id="headingSpoiler7">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Gender Significance Output
+  </h3>
+</button>
+<div id="collapseSpoiler7" class="accordion-collapse collapse" aria-labelledby="headingSpoiler7" data-bs-parent="#accordionSpoiler7">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fo8jzhit0mgs2w13i5mzno%2Funweighted-unifrac-gender-significance.qzv%3Frlkey%3Di4pddpyo9cosz7tg2dk8nr2zr%26dl%3D1" class="external-link">Click
+to view the unweighted-unifrac-gender-significance.qzv file in QIIME 2
+View.</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">qiime</span> diversity beta-group-significance <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="at">--i-distance-matrix</span> analysis/diversity_metrics/unweighted_unifrac_distance_matrix.qza <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="at">--m-metadata-column</span> Animal <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="at">--o-visualization</span> analysis/visualisations/unweighted-unifrac-animal-significance.qzv <span class="dt">\</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  <span class="at">--p-pairwise</span></span></code></pre>
+</div>
+<p>Copy
+<code>analysis/visualisations/unweighted-unifrac-animal-significance.qzv</code>
+to your local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler8" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler8" aria-expanded="false" aria-controls="collapseSpoiler8">
+  <h3 class="accordion-header" id="headingSpoiler8">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Check Your Work: Animal Significance Output
+  </h3>
+</button>
+<div id="collapseSpoiler8" class="accordion-collapse collapse" aria-labelledby="headingSpoiler8" data-bs-parent="#accordionSpoiler8">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fir3xgvn0vdwajx5hw663o%2Funweighted-unifrac-animal-significance.qzv%3Frlkey%3Dcekbzric4xww39b7hlf4x4772%26dl%3D1" class="external-link">Click
+to view the unweighted-unifrac-animal-significance.qzv file in QIIME 2
+View.</a></p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="provenance-and-reproducibility">Provenance and Reproducibility<a class="anchor" aria-label="anchor" href="#provenance-and-reproducibility"></a>
+</h2>
+<hr class="half-width">
+<p>QIIME 2 stores <strong>provenance metadata</strong> in every
+<code>.qzv</code> file it generates. This allows you to track exactly
+what commands, parameters, and inputs were used to create a
+result—making your analysis transparent and reproducible.</p>
+<p>To explore this, open any <code>.qzv</code> file (e.g.,
+unweighted-unifrac-animal-significance.qzv) in QIIME 2 View and select
+the Provenance tab.</p>
+<p>Take note of:</p>
+<ul>
+<li>Which commands were run</li>
+<li>The inputs used</li>
+<li>Any parameters set</li>
+<li>Intermediate files created along the way</li>
+</ul>
+<p>This is particularly useful when troubleshooting or writing up your
+methods.</p>
+<div id="callout3" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>##Note Click to view the <a href="https://view.qiime2.org/provenance/?src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fir3xgvn0vdwajx5hw663o%2Funweighted-unifrac-animal-significance.qzv%3Frlkey%3Dcekbzric4xww39b7hlf4x4772%26dl%3D1" class="external-link">unweighted-unifrac-animal-significance.qzv
+provenance file in QIIME 2 View.</a></p>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1371,14 +1990,17 @@ this:</p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>QIIME2 visualisations allow exploration of microbial composition,
+diversity, and statistical differences across groups.</li>
+<li>Taxonomic barplots, rarefaction curves, and diversity metrics
+provide insights into microbial community structure and sampling
+depth.</li>
+<li>Alpha diversity measures within-sample richness and evenness, while
+beta diversity measures between-sample dissimilarity.</li>
+<li>Group significance tests help assess whether diversity varies across
+categories like sex or animal ID.</li>
+<li>Core metrics pipelines simplify the process of generating multiple
+diversity outputs from a single command.</li>
 </ul>
 </div>
 </div>
@@ -1403,8 +2025,14 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>What file types are required to import QIIME2 outputs into R
+packages like phyloseq?</li>
+<li>Why do we need to remove header lines from .tsv files before
+importing into R?</li>
+<li>How can you ensure that taxonomy and ASV tables are in compatible
+formats and matching order for downstream analysis?</li>
+<li>What are the steps for exporting QIIME2 artefacts into plain text or
+.tsv formats usable in R?</li>
 </ul>
 </div>
 </div>
@@ -1414,9 +2042,16 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Describe the purpose of exporting QIIME2 artefacts (ASV table,
+taxonomy, and tree) for use in external tools like R and phyloseq.</li>
+<li>Convert QIIME2 artefacts into common formats such as .nwk, .biom,
+and .tsv, and prepare these files for compatibility with downstream
+R-based analysis.</li>
+<li>Clean and modify exported .tsv files (e.g., remove headers) to
+ensure proper formatting for import into R packages.</li>
+<li>Recognize the importance of consistent feature ordering across ASV
+and taxonomy files, and apply basic file-cleaning practices to avoid
+import errors or misaligned data in R.</li>
 </ul>
 </div>
 </div>
@@ -1555,6 +2190,186 @@ locally</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
+</section></section><section id="aio-section-6-extra-information"><p>Content from <a href="section-6-extra-information.html">Section 6 - Extra Information</a></p>
+<hr>
+<p>Last updated on 2025-08-05 |
+
+        <a href="https://github.com/rpapaluca/intro-QIIME2-mammal/edit/main/episodes/section-6-extra-information.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What is the purpose of training your own classifier in QIIME2?</li>
+<li>Why must primer sequences be specified when extracting reference
+reads for classifier training?</li>
+<li>What QIIME2 commands are used to extract region-specific reads and
+train a custom classifier?</li>
+<li>In what situations would you need to train a custom classifier
+instead of using a pre-trained one?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain why training a custom classifier is necessary when analyzing
+marker gene sequences outside of standard target regions.</li>
+<li>Identify the QIIME2 commands required to extract region-specific
+sequences (extract-reads) and train a classifier
+(fit-classifier-naive-bayes).</li>
+<li>Recognize the importance of using appropriate forward and reverse
+primers when building a classifier tailored to your sequencing
+protocol.</li>
+<li>Describe the overall workflow for training a naive Bayes classifier
+using the SILVA database for 16S/18S rRNA gene analysis.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>This is a lesson created via The Carpentries Workbench. It is written
+in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
+for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
+that can render code into output (with extension <code>.Rmd</code>).
+Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
+Carpentries Workbench</a> for full documentation.</p>
+<p>What you need to know is that there are three sections required for a
+valid Carpentries lesson template:</p>
+<ol style="list-style-type: decimal">
+<li>
+<code>questions</code> are displayed at the beginning of the episode
+to prime the learner for the content.</li>
+<li>
+<code>objectives</code> are the learning objectives for an episode
+displayed with the questions.</li>
+<li>
+<code>keypoints</code> are displayed at the end of the episode to
+reinforce the objectives.</li>
+</ol>
+<div id="challenge-1-can-you-do-it" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-1-can-you-do-it" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Can you do it?</h3>
+<div class="callout-content">
+<p>What is the output of this command?</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
+<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>You can add a line with at least three colons and a
+<code>solution</code> tag.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
+</h2>
+<hr class="half-width">
+<p>You can include figures generated from R Markdown:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
+<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
+<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
+<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
+<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre>
+</div>
+<figure style="text-align: center"><img src="fig/section-6-extra-information-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
+Sun arise each and every morning
+</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
+syntax:</p>
+<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
+<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
+</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
+</h2>
+<hr class="half-width">
+<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
+create dynamic reports with {knitr}, so we now use mathjax to describe
+this:</p>
+<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
+<p>Cool, right?</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>Use <code>.md</code> files for episodes when you want static
+content</li>
+<li>Use <code>.Rmd</code> files for episodes when you need to generate
+output</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
+with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
+locally</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
 </section></section>
 </div>
     </main>
@@ -1602,7 +2417,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "melbournebioinformatics.github.io/uom-varnish/aio.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/aio.html",
-  "dateCreated": "2025-07-17",
+  "dateCreated": "2023-11-01",
   "dateModified": "2025-08-05",
   "datePublished": "2025-08-05"
 }

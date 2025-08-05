@@ -118,11 +118,11 @@
   Intro to Metabarcoding using QIIME2 - Mammal Dataset
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 14%" class="percentage">
-    14%
+<aside class="col-md-12 lesson-progress"><div style="width: 12%" class="percentage">
+    12%
   </div>
   <div class="progress uom">
-    <div class="progress-bar uom" role="progressbar" style="width: 14%" aria-valuenow="14" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar uom" role="progressbar" style="width: 12%" aria-valuenow="12" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -234,9 +234,11 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#introduction">Introduction</a></li>
-<li><a href="#figures">Figures</a></li>
-<li><a href="#math">Math</a></li>
+        <ul><li><a href="#import-data">Import Data</a></li>
+<li><a href="#remove-primers">Remove Primers</a></li>
+<li><a href="#create-and-interpret-sequence-quality-data">Create and interpret sequence quality data</a></li>
+<li><a href="#denoising-the-data">Denoising the data</a></li>
+<li><a href="#generate-summary-files">Generate Summary Files</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -274,6 +276,15 @@
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
         <a href="section-5-exporting-data-for-further-analysis-in-r.html">7. Section 5 - Exporting data for further analysis in R</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="section-6-extra-information.html">8. Section 6 - Extra Information</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -356,8 +367,15 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<ul><li>How do you import paired-end FASTQ files into QIIME2 using the
+CasavaOneEight format?</li>
+<li>Why is it important to remove primers before denoising, and how is
+this done?</li>
+<li>How can you assess sequence quality in QIIME2, and what features of
+the quality plots help guide truncation parameters?</li>
+<li>What is the purpose of the <code>dada2</code> denoise-paired
+command, and what are some key parameters that influence its
+output?</li>
 </ul></div>
 </div>
 </div>
@@ -365,114 +383,377 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<ul><li>Import demultiplexed, paired ended sequencing data into QIIME2 using
+the appropriate format and command structure</li>
+<li>Explain why primer removal is necessary before denoising and apply
+<code>cutadapt</code> command with appropriate primer sequences and
+trimming parameters</li>
+<li>Generate and interpret sequence quality viusalisations from
+<code>qiime demux summarise</code> to determine suitable truncation
+lengths, based on quality score drop offs</li>
+<li>Summarise the function of <code>DADA</code>2 in QIIME2 and perform
+denoising of paired-end sequences using the <code>DADA2</code> plugin,
+adjusting key parameters like truncation length based on quality
+data.</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<hr class="half-width"><p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.html" class="external-link">Pandoc-flavored Markdown</a>
-for static files (with extension <code>.md</code>) and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files
-that can render code into output (with extension <code>.Rmd</code>).
-Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal"><li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol><div id="challenge-1-can-you-do-it" class="callout challenge">
+<section><h2 class="section-heading" id="import-data">Import Data<a class="anchor" aria-label="anchor" href="#import-data"></a></h2>
+<hr class="half-width"><p><a href="https://www.melbournebioinformatics.org.au/tutorials/tutorials/qiime2_mammal/qiime2_mammal/#the-study" class="external-link">These
+samples</a> were sequenced on a single Illumina MiSeq run using v3 (2 ×
+300 bp) reagents at the Walter and Eliza Hall Institute (WEHI),
+Melbourne, Australia. Data from WEHI came as paired-end, demultiplexed,
+unzipped *.fastq files with adapters still attached. Following the <a href="https://docs.qiime2.org/2023.9/tutorials/importing/" class="external-link">QIIME2
+importing tutorial</a>, this is the Casava One Eight format. The files
+have been renamed to satisfy the Casava format as
+SampleID_FWDXX-REVXX_L001_R[1 or 2]_001.fastq
+e.g. CTRLA_Fwd04-Rev25_L001_R1_001.fastq.gz. The files were then zipped
+(.gzip).</p>
+<p>Here, the data files (two per sample i.e. forward and reverse reads
+R1 and R2 respectively) will be imported and exported as a single QIIME
+2 artefact file. These samples are already demultiplexed (i.e. sequences
+from each sample have been written to separate files), so a metadata
+file is not initially required.</p>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>To check the input syntax for any QIIME2 command, enter the command,
+followed by <code>--help</code>
+e.g. <code>qiime tools import --help</code></p>
+</div>
+</div>
+</div>
+<p>Start by making a new directory analysis to store all the output
+files from this tutorial. In addition, we will create a subdirectory
+called seqs to store the exported sequences.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> analysis/seqs</span></code></pre>
+</div>
+<p>Run the command to import the raw data located in the directory
+raw_data and export it to a single QIIME 2 artefact file,
+combined.qza.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>--type <span class="st">'SampleData[PairedEndSequencesWithQuality]'</span> <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>--input-path raw_data <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>--input-format CasavaOneEightSingleLanePerSampleDirFmt <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>--output-path analysis/seqs/combined.qza</span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="remove-primers">Remove Primers<a class="anchor" aria-label="anchor" href="#remove-primers"></a></h2>
+<hr class="half-width"><p>These sequences still have the primers attached - they need to be
+removed (using <code>cutadapt</code>) before denoising.</p>
+<p>For this experiment, amplicons were amplified following the Earth
+Microbiome protocol with 515F (Caporaso)– 806R (Caporaso) primers
+targeting the v4 region of the 16S rRNA gene. The reads came back from
+the sequencer with primers attached, which are removed before denoising
+using <code>cutadapt</code> (v4.5 with python v3.8.15).</p>
+<p>With <code>cutadapt</code>, the sequence specified and all bases
+prior are trimmed; most sequences were trimmed at ~50 base pairs (bp).
+An error rate of 0.15 was used to maximize the number of reads that the
+primers were removed from while excluding nonspecific cutting. Any
+untrimmed read was discarded.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">qiime</span> cutadapt trim-paired <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>--i-demultiplexed-sequences analysis/seqs/combined.qza <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>--p-front-f GTGCCAGCMGCCGCGGTAA <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>--p-front-r GGACTACHVGGGTWTCTAAT <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>--p-discard-untrimmed <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>--p-error-rate 0.15 <span class="dt">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>--output-dir analysis/seqs_trimmed <span class="dt">\</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<div id="tips-for-your-own-samples-and-analyses" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="tips-for-your-own-samples-and-analyses" class="callout-inner">
+<h3 class="callout-title">Tips for Your Own Samples and Analyses</h3>
+<div class="callout-content">
+<ul><li>Remember to ask you sequencing facility if the raw data you get has
+the primers attached - they may have already been removed.</li>
+<li>The primers specified (515F (Caporaso)– 806R (Caporaso) targeting
+the v4 region of the bacterial 16S rRNA gene) correspond to this
+specific experiment - they will likely not work for your own data
+analyses.</li>
+<li>The error rate parameter, –p-error-rate, will likely need to be
+adjusted for your own sample data to get 100% (or close to it) of reads
+trimmed.</li>
+</ul></div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="create-and-interpret-sequence-quality-data">Create and interpret sequence quality data<a class="anchor" aria-label="anchor" href="#create-and-interpret-sequence-quality-data"></a></h2>
+<hr class="half-width"><p>After trimming adapters and primers, it’s important to check the
+overall quality of the sequence data before proceeding to denoising.
+This step helps you make informed choices about where to trim or
+truncate your reads and whether any samples should be excluded from
+analysis.</p>
+<p>To do this, we will generate a summary visualization of the
+demultiplexed and trimmed data using QIIME2.</p>
+<p>Create a subdirectory in <code>analysis</code> called
+<code>visualisations</code> to store all files that we will visualise in
+one place</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mkdir</span> analysis/visualisations</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">qiime</span> demux summarize <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>--i-data analysis/seqs_trimmed/trimmed_sequences.qza <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>--o-visualization analysis/visualisations/trimmed_sequences.qzv</span></code></pre>
+</div>
+<p>Copy the analysis/visualisations/trimmed_sequences.qzv file to your
+local computer and <a href="https://view.qiime2.org/" class="external-link">view it using
+QIIME 2 View</a>.</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Read Quality and Demux Output </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fm484d0ukdn9n7a2gdw7hh%2Ftrimmed_sequences.qzv%3Frlkey%3Dta8bbyyuz6ucpyn4jymx78bp2%26dl%3D1" class="external-link">Click
+to view the trimmed_sequence.qzv file in QIIME 2 View</a></p>
+<ul><li>Make sure to switch between the “Overview” and “Interactive Quality
+Plot” tabs in the top left hand corner.</li>
+<li>Click and drag on the plot to zoom in. Double click to zoom back out
+to full size.</li>
+<li>Hover over a box to see the parametric seven-number summary of the
+quality scores at the corresponding position.</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Things To Look Out For In Quality Data </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div class="accordion-body">
+<ul><li><p>Where does the median quality drop below 35? Look at the per-base
+sequence quality plots for forward (R1) and reverse (R2) reads. Identify
+the base pair position where the median quality score begins to sharply
+decline. This informs your choices for –p-trunc-len-f and –p-trunc-len-r
+in the next step.</p></li>
+<li><p>Are there any samples with very low read counts? Under the
+Interactive Sample Detail tab, check for samples with fewer than 1000
+reads. These may not provide reliable data and might need to be excluded
+later in R or at the diversity filtering stage.</p></li>
+<li><p>Overall quality trends across reads It’s normal for reverse reads
+(R2) to have lower quality toward the end. This may influence your
+decision to truncate them earlier than forward reads.</p></li>
+</ul></div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="denoising-the-data">Denoising the data<a class="anchor" aria-label="anchor" href="#denoising-the-data"></a></h2>
+<hr class="half-width"><p>Trimmed sequences are now quality assessed using the
+<code>dada2</code> <a href="https://pubmed.ncbi.nlm.nih.gov/27214047/" class="external-link">plugin within
+QIIME2</a>. <code>dada2</code> denoises data by modelling and correcting
+Illumina-sequenced amplicon errors, and infers exact amplicon sequence
+variants (ASVs), resolving differences of as little as 1 nucleotide. Its
+workflow consists of filtering, de-replication, reference‐free chimera
+detection, and paired‐end reads merging, resulting in a feature or ASV
+table.</p>
+<div id="callout3" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>This step may long time to run (i.e. hours), depending on files sizes
+and computational power.</p>
+</div>
+</div>
+</div>
+<div id="check-your-quality-assessment-understanding" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
+<div id="check-your-quality-assessment-understanding" class="callout-inner">
+<h3 class="callout-title">Check Your Quality Assessment Understanding</h3>
 <div class="callout-content">
-<p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
-</div>
+<p>Q: Based on your assessment of the quality plots from the
+trimmed_sequences.qzv file generated in the previous step, what values
+would you select for p-trunc-len-f and p-trunc-len-r in the command
+below? Hint: Look for the position where the median quality score drops
+below 35 for both forward and reverse reads?</p>
 </div>
 </div>
 </div>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
+<p>A: For version qiime2.2023.9 (other QIIME2 versions may slightly
+differ), open trimmed_sequences.qzv file in QIIME2 view and select the
+“Interactive Quality Plot” tab. Zoom in on the quality plots to
+determine the base pair position where the median quality drops below
+35: - Forward reads: ~253 bp - Reverse reads: ~208 bp</p>
+<p>While these are the technical thresholds, it’s often better to
+truncate more conservatively to improve quality and merging success. In
+this workshop, we use: - p-trunc-len-f 213 - p-trunc-len-r 168</p>
+<p>This trims an extra ~40 bp to ensure high-quality sequences are
+retained.</p>
+<p>Try experimenting with different truncation values and compare the
+DADA2 denoising stats to see how your choice affects read retention and
+quality.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
+<p>In the following command, a pooling method of ‘pseudo’ is selected.
+With the pseudo-pooling method, samples are denoised independently once,
+ASVs detected in at least 2 samples are recorded, and samples are
+denoised independently a second time, but this time with prior knowledge
+of the recorded ASVs and thus higher sensitivity to those ASVs. This is
+better than the default of ‘independent’ (where samples are denoised
+independently) when you expect samples in the run to have similar ASVs
+overall.</p>
+<div id="note---workshop-participants-only" class="callout">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<div id="note---workshop-participants-only" class="callout-inner">
+<h3 class="callout-title">Note - Workshop Participants Only</h3>
 <div class="callout-content">
-
+<p>Due to computational limitations in a workshop setting, this command
+will be run staggered (by co-ordinating with other users on the Nectar
+Instance you are logged in to), with no more than two users per Instance
+running the command at the same time.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a></h2>
-<hr class="half-width"><p>You can include figures generated from R Markdown:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<p>The specified output directory must not pre-exist.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">qiime</span> dada2 denoise-paired <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>--i-demultiplexed-seqs analysis/seqs_trimmed/trimmed_sequences.qza <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>--p-trunc-len-f xx <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>--p-trunc-len-r xx <span class="dt">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>--p-n-threads 0 <span class="dt">\</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>--p-pooling-method <span class="st">'pseudo'</span> <span class="dt">\</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>--output-dir analysis/dada2out <span class="dt">\</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>--verbose</span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/section-1-importing-cleaning-and-quality-control-of-the-data-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use pandoc markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure></section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a></h2>
-<hr class="half-width"><p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
+</section><section><h2 class="section-heading" id="generate-summary-files">Generate Summary Files<a class="anchor" aria-label="anchor" href="#generate-summary-files"></a></h2>
+<hr class="half-width"><p>A <a href="https://docs.qiime2.org/2023.9/tutorials/metadata/" class="external-link">metadata
+file</a> is required which provides the key to gaining biological
+insight from your data. The file echidna_metadata.tsv is provided in the
+home directory of your Nectar instance. This spreadsheet has already
+been verified using the plugin for Google Sheets, <a href="https://keemei.qiime2.org/" class="external-link">keemei</a>.</p>
+<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
+  <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Things To Look Out For In Summary Data </h3>
+</button>
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div class="accordion-body">
+<ul><li><p>How many features (ASVs) were generated? Are the communities high
+or low diversity?</p></li>
+<li><p>Do BLAST searches of the representative sequences make sense? Are
+the features what you would expect e.g. marine or terrestrial?</p></li>
+<li><p>Have a large number (e.g. &gt;50%) of sequences been lost during
+denoising/filtering? If so, the settings might be too
+stringent.</p></li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">qiime</span> metadata tabulate <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>--m-input-file analysis/dada2out/denoising_stats.qza <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_denoising_stats.qzv <span class="dt">\</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy analysis/visualisations/16s_denoising_stats.qzv to your local
+computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
+  <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Denoising Stats and Visualisation </h3>
+</button>
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhwpyu01wm0ubb82wbb1dt%2F16s_denoising_stats.qzv%3Frlkey%3Dkuc0zfuozlpzr0c49sxhr96m7%26dl%3D1" class="external-link">Click
+to view the 16s_denoising_stats.qzv file in QIIME 2 View</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>--i-table analysis/dada2out/table.qza <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>--m-sample-metadata-file echidna_metadata.tsv <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_table.qzv <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy analysis/visualisations/16s_table.qzv to your local computer and
+view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler5" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler5" aria-expanded="false" aria-controls="collapseSpoiler5">
+  <h3 class="accordion-header" id="headingSpoiler5">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Feature/ASV Summary and Visualisation </h3>
+</button>
+<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhkvk2yqpnm4w9oy64maf3%2F16s_table.qzv%3Frlkey%3Dtm368u59rexzgdwpm9m6l11l1%26dl%3D1" class="external-link">Click
+to view the 16s_table.qzv file in QIIME 2 View</a></p>
+<p>Make sure to switch between the “Overview” and “Feature Detail” tabs
+in the top left hand corner.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">qiime</span> feature-table tabulate-seqs <span class="dt">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>--i-data analysis/dada2out/representative_sequences.qza <span class="dt">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>--o-visualization analysis/visualisations/16s_representative_seqs.qzv <span class="dt">\</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>--verbose</span></code></pre>
+</div>
+<p>Copy analysis/visualisations/16s_representative_seqs.qzv to your
+local computer and view in QIIME 2 View (q2view).</p>
+<div id="accordionSpoiler6" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler6" aria-expanded="false" aria-controls="collapseSpoiler6">
+  <h3 class="accordion-header" id="headingSpoiler6">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Check Your Work: Representative Sequences and Visualisation </h3>
+</button>
+<div id="collapseSpoiler6" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler6" aria-labelledby="headingSpoiler6">
+<div class="accordion-body">
+<p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F2uesky0zntkapxhlr58gu%2F16s_representative_seqs.qzv%3Frlkey%3Dakmmi05wpcwommjuytgub2grk%26dl%3D1" class="external-link">Click
+here to view the 16s_representative_seqs.qzv file in QIIME 2
+View</a></p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -480,14 +761,13 @@ this:</p>
 <div class="callout-inner">
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
-<ul><li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<ul><li>QIIME2 can import demultiplexed paired-end reads as a single
+artefact using the CasavaOneEight format.</li>
+<li>Primer removal with <code>cutadapt</code> and inspection of quality
+plots helps determine optimal trimming parameters before denoising.</li>
+<li>DADA2 denoises and merges paired reads to generate high-quality
+ASVs, which can be summarised and evaluated using QIIME2
+visualisations.</li>
 </ul></div>
 </div>
 </div>
@@ -552,7 +832,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "melbournebioinformatics.github.io/uom-varnish/section-1-importing-cleaning-and-quality-control-of-the-data.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/section-1-importing-cleaning-and-quality-control-of-the-data.html",
-  "dateCreated": "2025-07-17",
+  "dateCreated": "2023-11-01",
   "dateModified": "2025-08-05",
   "datePublished": "2025-08-05"
 }
